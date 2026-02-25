@@ -1,0 +1,29 @@
+##############################################################
+##### VSCode extensions
+# Language Support
+vscode "astro-build.astro-vscode"
+vscode "bradlc.vscode-tailwindcss"
+vscode "prisma.prisma"
+vscode "redhat.vscode-yaml"
+vscode "svelte.svelte-vscode"
+vscode "unifiedjs.vscode-mdx"
+vscode "yzhang.markdown-all-in-one"
+vscode "Vue.volar"
+vscode "rust-lang.rust-analyzer"
+vscode "tauri-apps.tauri-vscode"
+# Look & Feel
+vscode "kisstkondoros.vscode-gutter-preview"
+vscode "oderwat.indent-rainbow"
+vscode "pkief.material-icon-theme"
+vscode "pmndrs.pmndrs"
+vscode "raunofreiberg.vesper"
+vscode "wayou.vscode-todo-highlight"
+vscode "zh9528.file-size"
+# Lint
+vscode "dbaeumer.vscode-eslint"
+vscode "esbenp.prettier-vscode"
+vscode "oxc.oxc-vscode"
+# Tools
+vscode "eamodio.gitlens"
+vscode "mushan.vscode-paste-image"
+vscode "streetsidesoftware.code-spell-checker"

@@ -1,0 +1,24 @@
+# To reload config
+# ⌘ ⇧ ,
+
+# ghostty +show-config --default --docs
+
+##############################################
+# Look and Feel
+# ghostty +list-themes
+theme = ayu
+
+adjust-cursor-thickness = 3
+adjust-underline-position = 3
+
+bold-is-bright = true
+cursor-style = block
+cursor-style-blink = false
+
+font-family = "Noto Sans Mono Medium", "D2Coding"
+font-feature = -liga
+font-thicken = true
+
+##############################################
+# Key bindings
+keybind = shift+enter=text:\n

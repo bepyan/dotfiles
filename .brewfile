@@ -1,0 +1,81 @@
+# file location: ~/.brewfile
+# brew bundle --file=".brewfile"
+
+##############################################################
+##### Settings
+
+# set arguments for all 'brew cask install' commands
+cask_args no_quarantine: true
+
+# better cask upgrading (see `cu`)
+tap "buo/cask-upgrade"
+
+##############################################################
+##### Unix/CLI tools
+
+brew "bash"        # esp. when you run scripts macOS is still on 3.2
+brew "bat"         # replace cat
+brew "fd"          # replace find
+brew "jq"          # for phrasing JSON
+brew "ripgrep"     # replace grep
+brew "tmux"        # terminal multiplexer
+brew "tree"        # for visualize directory
+brew "trash"       # replace rm -rf
+
+brew "zsh"
+brew "zsh-autosuggestions"      # → activated in .setup.main.sh
+brew "zsh-syntax-highlighting"  # → activated in .setup.main.sh
+
+##############################################################
+##### Mac apps
+
+brew "mas"
+mas "RunCat", id: 1429033973
+mas "KakaoTalk", id: 869223134
+mas "한글오피스 Viewer", id: 416746898
+
+tap "tw93/tap"
+brew "mole"              # macOS cleaner app
+
+cask "ghostty"
+cask "gifox"
+cask "helium-browser"
+cask "jordanbaird-ice"
+cask "notion-calendar"
+cask "notion"
+cask "obsidian"
+cask "raycast"
+cask "rectangle"
+cask "scroll-reverser"
+cask "shottr"
+
+cask "font-pretendard"
+cask "font-d2coding"
+cask "font-source-code-pro"
+
+##############################################################
+##### development
+
+brew "gh"
+brew "git-lfs"
+brew "git"
+
+cask "android-platform-tools"
+cask "android-studio"
+cask "cursor"
+cask "docker-desktop"
+cask "visual-studio-code"
+
+# cask "claude-code"    # → installed in .setup.main.sh
+cask "codex"
+cask "conductor"
+
+##############################################################
+##### Helpful commands
+
+# https://gist.github.com/ChristopherA/a579274536aab36ea9966f301ff14f3f
+
+# track transitive dependencies
+# brew deps --tree --installed asdf
+
+# see ~/.brew.sh for more commands
