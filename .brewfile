@@ -62,6 +62,7 @@ brew "git"
 
 cask "android-platform-tools"
 cask "android-studio"
+cask "bruno"
 cask "cursor"
 cask "docker-desktop"
 cask "visual-studio-code"
