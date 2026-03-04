@@ -105,5 +105,4 @@ fi
 ##############################################################
 
 source "$current_dir/.setup.agents.sh"
-# source $HOME/.macos.sh
-# source $HOME/.cleanup.sh
+source "$current_dir/.macos.sh"
