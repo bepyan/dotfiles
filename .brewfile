@@ -59,6 +59,7 @@ cask "font-source-code-pro"
 brew "gh"
 brew "git-lfs"
 brew "git"
+brew "docker"
 
 tap "hashicorp/tap"
 brew "hashicorp/tap/terraform"
@@ -67,7 +68,6 @@ cask "android-platform-tools"
 cask "android-studio"
 cask "bruno"
 cask "cursor"
-cask "docker-desktop"
 cask "visual-studio-code"
 
 # cask "claude-code"    # → installed in .setup.main.sh
