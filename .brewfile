@@ -61,9 +61,6 @@ brew "git-lfs"
 brew "git"
 brew "docker"
 
-tap "hashicorp/tap"
-brew "hashicorp/tap/terraform"
-
 cask "android-platform-tools"
 cask "android-studio"
 cask "bruno"
