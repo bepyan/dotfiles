@@ -52,6 +52,7 @@
     "vite"
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.linkedEditing": true,
   "editor.minimap.enabled": false,
   "editor.mouseWheelZoom": true,
   "explorer.confirmDelete": false,
@@ -60,5 +61,8 @@
   "git.confirmSync": false,
   "update.showReleaseNotes": false,
   "workbench.colorTheme": "Vesper",
-  "workbench.iconTheme": "material-icon-theme"
+  "workbench.editor.enablePreview": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always"
 }
