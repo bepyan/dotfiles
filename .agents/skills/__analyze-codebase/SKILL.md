@@ -1,5 +1,5 @@
 ---
-name: analyze-codebase
+name: __analyze-codebase
 description: Use when asked to analyze, audit, or review an unfamiliar codebase — for onboarding, architecture review, tech debt assessment, security audit, or operational readiness evaluation
 ---
 

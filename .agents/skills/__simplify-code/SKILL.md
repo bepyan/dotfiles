@@ -1,5 +1,5 @@
 ---
-name: simplify-code
+name: __simplify-code
 description: Simplifies code for clarity and maintainability while preserving exact behavior. Focuses on recently modified code. Use when user says "simplify", "simplify code", "make this simpler", "clean up", or "refactor for clarity".
 compatibility: Requires filesystem read/write access. Uses git if available to scope changes. Language-agnostic.
 ---

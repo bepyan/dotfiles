@@ -1,5 +1,5 @@
 ---
-name: analyze-changes
+name: __analyze-changes
 description: Interactive chunk-by-chunk review of PR or branch changes. Identifies logical groupings, explains each chunk, and critiques for issues. Use when user says "analyze-changes", "review changes", "review this PR", "what changed", or "walk me through these changes".
 compatibility: Requires git and optionally gh CLI for PR context.
 ---

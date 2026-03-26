@@ -1,5 +1,5 @@
 ---
-name: multi-mind
+name: __multi-mind
 description: Multi-specialist collaborative analysis for complex decisions. Spawns parallel subagents with diverse domain expertise to analyze a topic from multiple angles. Use when user says "multi-mind", or for complex architecture decisions, technology choices, strategic planning, or any multi-faceted problem with no obvious right answer.
 compatibility: Assumes a filesystem shell; may use network access for external research (prefer native web search if available/enabled; otherwise use `curl`); does not require subagent/task tooling.
 ---

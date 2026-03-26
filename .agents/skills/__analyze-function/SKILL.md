@@ -1,5 +1,5 @@
 ---
-name: analyze-function
+name: __analyze-function
 description: Deep line-by-line analysis of a function or method. Explains what each line does, why it's written that way, performance implications, edge cases, and design patterns. Use when user says "analyze-function", "analyze {function}", "deep dive on {function}", or "explain {function} line by line".
 compatibility: Requires filesystem read access to source files.
 ---

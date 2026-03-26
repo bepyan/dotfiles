@@ -1,5 +1,5 @@
 ---
-name: write-pr-desc
+name: __write-pr-desc
 description: Generate a GitHub Pull Request description. Creates structured, reviewer-centric PR descriptions with title, summary, why (before/after), implementation details, and impact. Use when user says "write PR description", "PR desc", "describe this PR", or "generate PR description".
 compatibility: Requires git for diff context, optionally gh CLI for PR metadata.
 ---
