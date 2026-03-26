@@ -1,0 +1,12 @@
+{
+  "browsers" : "[\"file:\\\/\\\/\\\/Applications\\\/Zen%20Browser.app\\\/\",\"file:\\\/\\\/\\\/Applications\\\/Helium.app\\\/\",\"file:\\\/\\\/\\\/Applications\\\/Google%20Chrome.app\\\/\",\"file:\\\/\\\/\\\/System\\\/Volumes\\\/Preboot\\\/Cryptexes\\\/App\\\/System\\\/Applications\\\/Safari.app\\\/\",\"file:\\\/\\\/\\\/Applications\\\/Safari%20Technology%20Preview.app\\\/\"]",
+  "apps" : "[{\"app\":\"file:\\\/\\\/\\\/Applications\\\/Notion.app\\\/\",\"host\":\"notion.so\",\"schemeOverride\":\"\"}]",
+  "rules" : "[{\"regex\":\"daumkakao.com\",\"app\":\"file:\\\/\\\/\\\/Applications\\\/Google%20Chrome.app\\\/\"},{\"regex\":\"onkakao.net\",\"app\":\"file:\\\/\\\/\\\/Applications\\\/Google%20Chrome.app\\\/\"},{\"regex\":\"agit.in\",\"app\":\"file:\\\/\\\/\\\/Applications\\\/Google%20Chrome.app\\\/\"},{\"regex\":\"daumkakao.io\",\"app\":\"file:\\\/\\\/\\\/Applications\\\/Google%20Chrome.app\\\/\"},{\"regex\":\"notion.so\",\"app\":\"file:\\\/\\\/\\\/Applications\\\/Notion.app\\\/\"},{\"regex\":\"github.com\",\"app\":\"file:\\\/\\\/\\\/Applications\\\/Helium.app\\\/\"},{\"regex\":\"x.com\",\"app\":\"file:\\\/\\\/\\\/Applications\\\/Helium.app\\\/\"}]",
+  "showInMenuBar" : false,
+  "SLSMenuBarUseBlurredAppearance" : true,
+  "shortcuts" : "{\"notion.id\":\"N\",\"com.apple.Safari\":\"S\",\"com.google.Chrome\":\"C\",\"net.imput.helium\":\"H\",\"app.zen-browser.zen\":\"Z\"}",
+  "ACDMonthlyAnalyticsLastPosted" : 794397746.82122099,
+  "directories" : "[{\"directoryPath\":\"\\\/Applications\"}]",
+  "privateArgs" : "{\"app.zen-browser.zen\":\"\",\"com.apple.Safari\":\"\"}",
+  "PayloadUUID" : "2DD406FC-FCEE-420F-B337-80D2C975FC58"
+}
