@@ -40,6 +40,7 @@ brew "mole"              # macOS cleaner app
 cask "ghostty"
 cask "gifox"
 cask "helium-browser"
+cask "google-chrome"
 cask "jordanbaird-ice"
 cask "notion-calendar"
 cask "notion"
