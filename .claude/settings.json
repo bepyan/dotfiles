@@ -1,14 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "outputStyle": "Explanatory",
-  "spinnerTipsEnabled": false,
-  "model": "opus",
-  "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true
-  },
-  "hooks": {
-    "PreToolUse": []
-  },
   "permissions": {
     "allow": [
       "Bash(npm run *)",
@@ -16,5 +7,14 @@
       "Bash(bun run *)",
       "Bash(git commit *)"
     ]
-  }
+  },
+  "model": "opus[1m]",
+  "hooks": {
+    "PreToolUse": []
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "outputStyle": "Explanatory",
+  "spinnerTipsEnabled": false
 }
