@@ -49,7 +49,9 @@
     "tauri",
     "turso",
     "twoslash",
-    "vite"
+    "ultrawork",
+    "vite",
+    "worktree"
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.linkedEditing": true,
@@ -58,11 +60,13 @@
   "explorer.confirmDelete": false,
   "extensions.ignoreRecommendations": true,
   "files.autoSave": "onFocusChange",
+  // automatically detect git worktree based on open editors
+  "git.autoRepositoryDetection": "openEditors",
   "git.confirmSync": false,
   "update.showReleaseNotes": false,
   "workbench.colorTheme": "Vesper",
-  "workbench.editor.enablePreview": false,
   "workbench.iconTheme": "material-icon-theme",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "javascript.updateImportsOnFileMove.enabled": "always"
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "cursor.general.emailPrivacyEnabled": true
 }
