@@ -61,6 +61,7 @@ brew "gh"
 brew "git-lfs"
 brew "git"
 brew "docker"
+brew "mkcert"
 
 cask "android-platform-tools"
 cask "android-studio"
