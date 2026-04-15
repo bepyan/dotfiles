@@ -1,3 +1,0 @@
-# Brainstorming
-
-https://github.com/obra/superpowers/blob/main/skills/brainstorming/SKILL.md
