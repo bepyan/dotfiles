@@ -34,12 +34,9 @@
       "Read",
       "Write",
       "Edit",
-      "MultiEdit",
       "Grep",
       "Glob",
-      "Search",
-      "Execute",
-      "Bash(*)",
+      "Bash",
       "mcp__*"
     ],
     "deny": [
