@@ -59,6 +59,9 @@ ln -sfn "$dotfiles_dir/.config/claude/settings.json" "$HOME/.claude/settings.jso
 rm -rf "$HOME/.claude/statusline.sh"
 ln -sfn "$dotfiles_dir/.config/claude/statusline.sh" "$HOME/.claude/statusline.sh"
 
+rm -rf "$HOME/.claude/statusline-fetch-rl.sh"
+ln -sfn "$dotfiles_dir/.config/claude/statusline-fetch-rl.sh" "$HOME/.claude/statusline-fetch-rl.sh"
+
 ##############################################################
 # Codex
 ##############################################################
