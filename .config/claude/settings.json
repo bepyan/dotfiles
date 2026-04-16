@@ -49,7 +49,7 @@
   },
   "spinnerTipsEnabled": false,
   "statusLine": {
-    "command": "bash $HOME/.claude/statusline-command.sh",
+    "command": "bash $HOME/.claude/statusline.sh",
     "type": "command"
   }
 }

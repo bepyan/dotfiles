@@ -56,6 +56,9 @@ ln -sfn "$HOME/.agents/skills" "$HOME/.claude/skills"
 rm -rf "$HOME/.claude/settings.json"
 ln -sfn "$dotfiles_dir/.config/claude/settings.json" "$HOME/.claude/settings.json"
 
+rm -rf "$HOME/.claude/statusline.sh"
+ln -sfn "$dotfiles_dir/.config/claude/statusline.sh" "$HOME/.claude/statusline.sh"
+
 ##############################################################
 # Codex
 ##############################################################
@@ -81,7 +84,9 @@ ln -sfn "$HOME/.agents/rules" "$HOME/.codex/rules"
 if command -v jq >/dev/null 2>&1 && [ -f "$dotfiles_dir/.config/claude/settings.json" ]; then
     echo -e "\n${PURPLE}••••••• verifying hook scripts${NC}"
     # Strip JSONC line comments (`//`) since jq accepts only strict JSON
-    sed -E 's:^[[:space:]]*//.*$::' "$dotfiles_dir/.config/claude/settings.json" \
+    stripped=$(sed -E 's:^[[:space:]]*//.*$::' "$dotfiles_dir/.config/claude/settings.json")
+
+    echo "$stripped" \
       | jq -r '.hooks // {} | to_entries[] | .value[]?.hooks[]?.command' 2>/dev/null \
       | while read -r cmd; do
             [ -z "$cmd" ] && continue
@@ -92,6 +97,19 @@ if command -v jq >/dev/null 2>&1 && [ -f "$dotfiles_dir/.config/claude/settings.
                 echo -e "  ✗ $cmd ${YELLOW}(not found or not executable)${NC}"
             fi
         done || true
+
+    # statusLine is invoked via `bash <script>`; only check file existence.
+    status_cmd=$(echo "$stripped" | jq -r '.statusLine.command // empty' 2>/dev/null)
+    if [ -n "$status_cmd" ]; then
+        script_path=$(printf '%s' "$status_cmd" \
+          | awk '{for(i=1;i<=NF;i++) if ($i ~ /\.(sh|py|bash)$/) {print $i; exit}}')
+        expanded="${script_path//\$HOME/$HOME}"
+        if [ -f "$expanded" ]; then
+            echo -e "${GRAY}  ✓ statusLine: $script_path${NC}"
+        else
+            echo -e "  ✗ statusLine: $script_path ${YELLOW}(not found)${NC}"
+        fi
+    fi
 fi
 
 echo -e "\n${YELLOW}---- Agents setup complete ✔${NC}"
