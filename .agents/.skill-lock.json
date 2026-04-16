@@ -118,42 +118,6 @@
       "installedAt": "2026-04-15T06:20:33.613Z",
       "updatedAt": "2026-04-15T06:20:33.613Z"
     },
-    "grammar-checker": {
-      "source": "daleseo/korean-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/daleseo/korean-skills.git",
-      "skillPath": "skills/grammar-checker/SKILL.md",
-      "skillFolderHash": "bfa34f50194d8bb04784139b566626557fdcfc54",
-      "installedAt": "2026-04-15T06:39:16.992Z",
-      "updatedAt": "2026-04-15T06:39:16.992Z"
-    },
-    "humanizer": {
-      "source": "daleseo/korean-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/daleseo/korean-skills.git",
-      "skillPath": "skills/humanizer/SKILL.md",
-      "skillFolderHash": "9693b566725fca6eb6de2407a7e29822d03f83b2",
-      "installedAt": "2026-04-15T06:39:17.442Z",
-      "updatedAt": "2026-04-15T06:39:17.442Z"
-    },
-    "style-guide": {
-      "source": "daleseo/korean-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/daleseo/korean-skills.git",
-      "skillPath": "skills/style-guide/SKILL.md",
-      "skillFolderHash": "3b3c4313c811a5ac2ffeebcdd5f28415b13c3ac7",
-      "installedAt": "2026-04-15T06:39:17.857Z",
-      "updatedAt": "2026-04-15T06:39:17.857Z"
-    },
-    "write-a-prd": {
-      "source": "mattpocock/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/mattpocock/skills.git",
-      "skillPath": "write-a-prd/SKILL.md",
-      "skillFolderHash": "566c485ddc02f2338f1d5be6c0188db74e278678",
-      "installedAt": "2026-04-15T07:50:35.895Z",
-      "updatedAt": "2026-04-15T07:50:35.895Z"
-    },
     "write-a-skill": {
       "source": "mattpocock/skills",
       "sourceType": "github",
@@ -198,6 +162,51 @@
       "skillFolderHash": "28d7822c112f22cf499099881856fdec07bc83a8",
       "installedAt": "2026-04-15T08:02:27.628Z",
       "updatedAt": "2026-04-15T08:02:27.628Z"
+    },
+    "impeccable": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/pbakaus/impeccable.git",
+      "skillPath": ".agents/skills/impeccable/SKILL.md",
+      "skillFolderHash": "e06e0b8cc19ef6792c27ea34db4a73497c74954e",
+      "installedAt": "2026-04-15T10:05:52.452Z",
+      "updatedAt": "2026-04-15T10:05:52.452Z"
+    },
+    "ko:grammar-checker": {
+      "source": "bepyan/korean-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/bepyan/korean-skills.git",
+      "skillPath": "skills/ko:grammar-checker/SKILL.md",
+      "skillFolderHash": "bfa34f50194d8bb04784139b566626557fdcfc54",
+      "installedAt": "2026-04-15T06:39:16.992Z",
+      "updatedAt": "2026-04-16T11:39:34.000Z"
+    },
+    "ko:style-guide": {
+      "source": "bepyan/korean-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/bepyan/korean-skills.git",
+      "skillPath": "skills/ko:style-guide/SKILL.md",
+      "skillFolderHash": "3b3c4313c811a5ac2ffeebcdd5f28415b13c3ac7",
+      "installedAt": "2026-04-15T06:39:17.857Z",
+      "updatedAt": "2026-04-16T11:39:34.000Z"
+    },
+    "humanizer": {
+      "source": "blader/humanizer",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/blader/humanizer.git",
+      "skillPath": "SKILL.md",
+      "skillFolderHash": "8b3a17889fbf12bedae20974a3c9f9de746ed754",
+      "installedAt": "2026-04-16T11:41:47.000Z",
+      "updatedAt": "2026-04-16T11:41:47.000Z"
+    },
+    "ko:humanizer": {
+      "source": "bepyan/korean-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/bepyan/korean-skills.git",
+      "skillPath": "skills/ko:humanizer/SKILL.md",
+      "skillFolderHash": "940bf3136c8ec368d1dc8c114abb978f512531a7",
+      "installedAt": "2026-04-16T11:45:12.821Z",
+      "updatedAt": "2026-04-16T11:45:12.821Z"
     }
   },
   "dismissed": {
