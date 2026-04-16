@@ -1,20 +1,55 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "permissions": {
-    "allow": [
-      "Bash(npm run *)",
-      "Bash(pnpm run *)",
-      "Bash(bun run *)",
-      "Bash(git commit *)"
-    ]
-  },
-  "model": "opus[1m]",
-  "hooks": {
-    "PreToolUse": []
-  },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true
   },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "$HOME/.agents/hooks/pre-edit-checklist.sh",
+            "type": "command"
+          }
+        ],
+        "matcher": "Edit|Write|MultiEdit"
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "$HOME/.agents/hooks/stop-session-log.sh",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ]
+  },
+  "model": "opus[1m]",
   "outputStyle": "Explanatory",
-  "spinnerTipsEnabled": false
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "MultiEdit",
+      "Grep",
+      "Glob",
+      "Search",
+      "Execute",
+      "Bash(*)",
+      "mcp__*"
+    ],
+    "deny": [
+      "Bash(sudo *)",
+      "Bash(rm -rf *)"
+    ]
+  },
+  "spinnerTipsEnabled": false,
+  "statusLine": {
+    "command": "bash $HOME/.claude/statusline-command.sh",
+    "type": "command"
+  }
 }
