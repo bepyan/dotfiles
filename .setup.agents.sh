@@ -54,7 +54,7 @@ rm -rf "$HOME/.claude/skills"
 ln -sfn "$HOME/.agents/skills" "$HOME/.claude/skills"
 
 rm -rf "$HOME/.claude/settings.json"
-ln -sfn "$dotfiles_dir/.claude/settings.json" "$HOME/.claude/settings.json"
+ln -sfn "$dotfiles_dir/.config/claude/settings.json" "$HOME/.claude/settings.json"
 
 ##############################################################
 # Codex
@@ -75,5 +75,23 @@ ln -sfn "$HOME/.agents/rules" "$HOME/.codex/rules"
 # skills: codex reads $HOME/.agents/skills directly — no symlink needed
 
 ##############################################################
+# Verify hook scripts referenced in settings.json exist and are executable
+##############################################################
+
+if command -v jq >/dev/null 2>&1 && [ -f "$dotfiles_dir/.config/claude/settings.json" ]; then
+    echo -e "\n${PURPLE}••••••• verifying hook scripts${NC}"
+    # Strip JSONC line comments (`//`) since jq accepts only strict JSON
+    sed -E 's:^[[:space:]]*//.*$::' "$dotfiles_dir/.config/claude/settings.json" \
+      | jq -r '.hooks // {} | to_entries[] | .value[]?.hooks[]?.command' 2>/dev/null \
+      | while read -r cmd; do
+            [ -z "$cmd" ] && continue
+            expanded="${cmd//\$HOME/$HOME}"
+            if [ -x "$expanded" ]; then
+                echo -e "${GRAY}  ✓ $cmd${NC}"
+            else
+                echo -e "  ✗ $cmd ${YELLOW}(not found or not executable)${NC}"
+            fi
+        done || true
+fi
 
 echo -e "\n${YELLOW}---- Agents setup complete ✔${NC}"
