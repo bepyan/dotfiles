@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-
-set -Eeuo pipefail
-
+#
 # macOS Setup Script
 #
 # Sources:
@@ -9,6 +7,8 @@ set -Eeuo pipefail
 # - https://github.com/mathiasbynens/dotfiles
 # - https://github.com/driesvints/dotfiles
 # - https://grishy.dev/en/posts/macOS-setup-2025
+
+set -Eeuo pipefail
 
 YELLOW='\033[1;33m' # switching section
 GRAY='\033[1;30m'   # info
