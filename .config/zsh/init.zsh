@@ -2,6 +2,7 @@ source $HOME/.config/zsh/style.zsh
 
 ## alias
 alias pn=pnpm
+alias cc=claude
 
 ## PATH
 export BUN_INSTALL="$HOME/.bun"
