@@ -1,34 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true
-  },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "hooks": [
-          {
-            "command": "$HOME/.agents/hooks/pre-edit-checklist.sh",
-            "type": "command"
-          }
-        ],
-        "matcher": "Edit|Write|MultiEdit"
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "command": "$HOME/.agents/hooks/stop-session-log.sh",
-            "type": "command"
-          }
-        ],
-        "matcher": ""
-      }
-    ]
-  },
-  "model": "opus[1m]",
-  "outputStyle": "Explanatory",
   "permissions": {
     "allow": [
       "Read",
@@ -47,6 +18,7 @@
       "TaskGet",
       "TaskOutput",
       "TaskStop",
+      "Skill",
       "mcp__*"
     ],
     "deny": [
@@ -54,9 +26,39 @@
       "Bash(rm -rf *)"
     ]
   },
-  "spinnerTipsEnabled": false,
+  "model": "opus[1m]",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.agents/hooks/pre-edit-checklist.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.agents/hooks/stop-session-log.sh"
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
-    "command": "bash $HOME/.claude/statusline.sh",
-    "type": "command"
-  }
+    "type": "command",
+    "command": "bash $HOME/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "outputStyle": "Explanatory",
+  "spinnerTipsEnabled": false,
+  "skipAutoPermissionPrompt": true
 }
