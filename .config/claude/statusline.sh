@@ -21,12 +21,12 @@ dirty=''
 
 # Truecolor palette — ANSI-C quoting so vars hold real ESC bytes
 # (safe to pass as %s args or through awk, unlike literal '\033...').
-B=$'\033[38;2;30;102;245m'    # blue    — directory
-G=$'\033[38;2;64;160;43m'     # green   — branch / safe bar (<70%)
-Y=$'\033[38;2;223;142;29m'    # yellow  — dirty marker / warn bar (≥70%)
-RD=$'\033[38;2;220;50;47m'    # red     — crit bar (≥90%)
-C=$'\033[38;2;23;146;153m'    # cyan    — username
-K=$'\033[38;2;139;148;158m'   # gray    — labels / separators / empty bar
+# https://github.com/anomalyco/opencode/blob/dev/packages/ui/src/theme/themes/vesper.json
+B=$'\033[38;2;255;199;153m'   # #FFC799 primary  — directory
+G=$'\033[38;2;153;255;228m'   # #99FFE4 success  — branch
+Y=$'\033[38;2;255;199;153m'   # #FFC799 warning  — dirty marker
+C=$'\033[38;2;255;255;255m'   # #FFFFFF ink      — username
+K=$'\033[38;2;139;139;139m'   # #8B8B8B comment  — labels / separators / bars
 R=$'\033[0m'
 
 # ─── Line 1: user:cwd branch[*] [CAVEMAN] ──────────────────────────
@@ -95,14 +95,6 @@ bar() {
   printf '%s' "$out"
 }
 
-# Pick bar segment color by threshold; returns raw ESC bytes.
-pick_color() {
-  local p=${1:-}
-  [ -z "$p" ] && { printf '%s' "$K"; return; }
-  awk -v p="$p" -v g="$G" -v y="$Y" -v r="$RD" \
-      'BEGIN{ if(p+0>=90)printf "%s",r; else if(p+0>=70)printf "%s",y; else printf "%s",g }'
-}
-
 # render_seg <label> <pct> <width>
 render_seg() {
   local label=$1 pct=${2:-} width=$3
@@ -110,8 +102,7 @@ render_seg() {
   if [ -z "$pct" ]; then
     printf '%s%s %s --%%%s' "$K" "$label" "$b" "$R"
   else
-    local c; c=$(pick_color "$pct")
-    printf '%s%s %s%s%s %s%3.0f%%%s' "$K" "$label" "$c" "$b" "$R" "$c" "$pct" "$R"
+    printf '%s%s %s %3.0f%%%s' "$K" "$label" "$b" "$pct" "$R"
   fi
 }
 
