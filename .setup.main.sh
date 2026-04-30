@@ -29,14 +29,21 @@ done
 
 echo -e "\n${YELLOW}---- Setting up VSCode & Cursor${NC}"
 vscode_settings="$current_dir/.config/vscode/settings.json"
+vscode_cspell_words="$current_dir/.config/vscode/cspell-user-words.txt"
 vscode_targets=(
     "$HOME/Library/Application Support/Code/User/settings.json"
     "$HOME/Library/Application Support/Cursor/User/settings.json"
 )
 for target in "${vscode_targets[@]}"; do
+    target_dir="$(dirname "$target")"
     rm -f "$target"
     echo -e "${PURPLE}••••••• symlinking $vscode_settings -> $target${NC}"
     ln -sfn "$vscode_settings" "$target"
+
+    target_words="$target_dir/cspell-user-words.txt"
+    rm -f "$target_words"
+    echo -e "${PURPLE}••••••• symlinking $vscode_cspell_words -> $target_words${NC}"
+    ln -sfn "$vscode_cspell_words" "$target_words"
 done
 
 ##############################################################
