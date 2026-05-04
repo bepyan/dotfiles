@@ -50,6 +50,9 @@ ln -sfn "$HOME/.agents/commands" "$HOME/.claude/commands"
 rm -rf "$HOME/.claude/rules"
 ln -sfn "$HOME/.agents/rules" "$HOME/.claude/rules"
 
+rm -rf "$HOME/.claude/agents"
+ln -sfn "$HOME/.agents/agents" "$HOME/.claude/agents"
+
 rm -rf "$HOME/.claude/skills"
 ln -sfn "$HOME/.agents/skills" "$HOME/.claude/skills"
 
