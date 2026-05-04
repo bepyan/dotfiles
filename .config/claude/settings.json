@@ -22,8 +22,7 @@
       "mcp__*"
     ],
     "deny": [
-      "Bash(sudo *)",
-      "Bash(rm -rf *)"
+      "Bash(sudo *)"
     ]
   },
   "model": "opus[1m]",
@@ -60,5 +59,6 @@
   },
   "outputStyle": "Explanatory",
   "spinnerTipsEnabled": false,
+  "autoCompactEnabled": false,
   "skipAutoPermissionPrompt": true
 }
