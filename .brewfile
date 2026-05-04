@@ -34,8 +34,8 @@ mas "RunCat", id: 1429033973
 mas "KakaoTalk", id: 869223134
 mas "한글오피스 Viewer", id: 416746898
 
-tap "tw93/tap"
 brew "mole"              # macOS cleaner app
+brew "yt-dlp"
 
 cask "ghostty"
 cask "gifox"
@@ -72,6 +72,7 @@ cask "visual-studio-code"
 # cask "claude-code"    # → installed in .setup.main.sh
 cask "codex"
 cask "conductor"
+brew "opencode"
 
 ##############################################################
 ##### Helpful commands
