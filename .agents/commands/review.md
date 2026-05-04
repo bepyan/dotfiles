@@ -1,23 +1,57 @@
 ---
-description: code-reviewer + security-reviewer agents + caveman-review skill 통합 검토
-argument-hint: "[diff-base | filepath]"
+description: PR/current/local diff/filepath를 code/security/silent-failure 관점으로 통합 리뷰
+argument-hint: "[pr-number | current | diff-base | filepath]"
 meta:
   source: native
-  updateDate: 2026-04-16
+  updateDate: 2026-05-04
 ---
 
-검토 대상: $ARGUMENTS (없으면 현재 staged + unstaged diff)
+검토 대상: $ARGUMENTS
 
-## 진행 절차 (병렬 spawn)
+없으면 현재 staged + unstaged diff를 검토한다.
 
-1. `code-reviewer` agent — 일반 품질, 패턴, 가독성, 테스트 커버리지
-2. `security-reviewer` agent — OWASP Top 10, 비밀 누출, 입력 검증
-3. `silent-failure-hunter` agent — empty catch / 에러 swallow / 잘못된 fallback (필수)
-4. (선택) `typescript-reviewer` 또는 `database-reviewer` — 언어/도메인 매칭 시
-5. (선택) 큰 타입 변경 (union/branded/discriminated unions/제네릭 도입) 감지 시 → `type-design-analyzer` 추가 spawn
-6. 결과 종합 후 `caveman-review` skill 로 최종 코멘트를 한 줄/이슈 형태로 압축
+## 대상 판별
+
+1. `$ARGUMENTS`가 없으면:
+   - `git diff --cached`
+   - `git diff`
+
+2. `$ARGUMENTS`가 `current`이면:
+   - `gh pr view`
+   - `gh pr diff`
+
+3. `$ARGUMENTS`가 PR 번호이면:
+   - `gh pr view <num>`
+   - `gh pr diff <num>`
+
+4. `$ARGUMENTS`가 파일/경로이면 (filesystem 존재 확인 우선):
+   - 해당 파일/경로의 diff와 주변 context 확보
+
+5. 그 외에는 diff base로 간주:
+   - `git diff <base>...HEAD`
+
+## 진행 절차
+
+1. 변경사항과 메타데이터 수집
+2. 병렬 spawn:
+   - `code-reviewer` agent — 품질, 패턴, 가독성, 테스트 커버리지
+   - `security-reviewer` agent — OWASP Top 10, 비밀 누출, 입력 검증
+   - `silent-failure-hunter` agent — empty catch, error swallow, 잘못된 fallback
+   - 조건부 `typescript-reviewer`
+   - 조건부 `database-reviewer`
+   - 조건부 `type-design-analyzer`
+3. PR 대상이면 추가 점검:
+   - 제목 70자 이하
+   - 설명 구조
+   - 테스트 체크리스트
+   - CI 상태: `gh pr checks`
+4. 결과 중복 제거 및 심각도 분류
+5. `caveman-review` skill로 코멘트 압축
+6. PR 대상이고 사용자가 승인하면 `gh pr comment`로 게시 — 기존 봇 코멘트(marker `<!-- claude-review -->` 매칭) 가 있으면 `--edit-last` 로 갱신, 없으면 새 코멘트 (멱등성 가드)
 
 ## 산출물
 
-- 심각도별 분류 (CRITICAL / HIGH / MEDIUM / LOW)
-- 차단 여부 판단
+- CRITICAL / HIGH / MEDIUM / LOW 분류
+- 차단 여부
+- 권고 액션
+- PR 대상인 경우 게시용 코멘트 초안
