@@ -172,23 +172,23 @@
       "installedAt": "2026-04-15T10:05:52.452Z",
       "updatedAt": "2026-04-15T10:05:52.452Z"
     },
-    "ko:grammar-checker": {
+    "ko-grammar-checker": {
       "source": "bepyan/korean-skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/bepyan/korean-skills.git",
-      "skillPath": "skills/ko:grammar-checker/SKILL.md",
-      "skillFolderHash": "bfa34f50194d8bb04784139b566626557fdcfc54",
+      "skillPath": "skills/ko-grammar-checker/SKILL.md",
+      "skillFolderHash": "f151a6a0ac5ff9ef527daa6bdc154cd9922b64ec",
       "installedAt": "2026-04-15T06:39:16.992Z",
-      "updatedAt": "2026-04-16T11:39:34.000Z"
+      "updatedAt": "2026-05-10T00:00:00.000Z"
     },
-    "ko:style-guide": {
+    "ko-style-guide": {
       "source": "bepyan/korean-skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/bepyan/korean-skills.git",
-      "skillPath": "skills/ko:style-guide/SKILL.md",
-      "skillFolderHash": "3b3c4313c811a5ac2ffeebcdd5f28415b13c3ac7",
+      "skillPath": "skills/ko-style-guide/SKILL.md",
+      "skillFolderHash": "a0e38b88e8dddf6dd4914132f5a52c86d7343f21",
       "installedAt": "2026-04-15T06:39:17.857Z",
-      "updatedAt": "2026-04-16T11:39:34.000Z"
+      "updatedAt": "2026-05-10T00:00:00.000Z"
     },
     "humanizer": {
       "source": "blader/humanizer",
@@ -199,14 +199,14 @@
       "installedAt": "2026-04-16T11:41:47.000Z",
       "updatedAt": "2026-04-16T11:41:47.000Z"
     },
-    "ko:humanizer": {
+    "ko-humanizer": {
       "source": "bepyan/korean-skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/bepyan/korean-skills.git",
-      "skillPath": "skills/ko:humanizer/SKILL.md",
-      "skillFolderHash": "940bf3136c8ec368d1dc8c114abb978f512531a7",
+      "skillPath": "skills/ko-humanizer/SKILL.md",
+      "skillFolderHash": "85cce33ef394d03f5984e5d9c308c075541d25be",
       "installedAt": "2026-04-16T11:45:12.821Z",
-      "updatedAt": "2026-04-16T11:45:12.821Z"
+      "updatedAt": "2026-05-10T00:00:00.000Z"
     }
   },
   "dismissed": {

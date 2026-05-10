@@ -1,10 +1,10 @@
 ---
-name: ko:grammar-checker
+name: ko-grammar-checker
 description: "표준 한국어 규칙에 기반한 문법, 맞춤법, 띄어쓰기, 구두점 검사기. 맞춤법 오류(되/돼, -ㄴ지/-는지), 띄어쓰기 오류(의존명사, 보조용언), 문법 오류(조사 사용, 시제), 구두점 문제를 감지하고 교정합니다. 다음 상황에 사용하세요. (1) 한국어 문서 작성 후 검토 (2) 작성 중 실시간 교정 (3) 코드의 한국어 주석이나 문서 검사 (4) 설명과 함께 한국어 문법 학습 (5) 공식 문서 품질 보장"
 license: MIT
 metadata:
   author: DaleSeo
-  version: "1.0.0"
+  version: "1.0.1"
 allowed-tools: Read Write Edit Grep Glob AskUserQuestion
 ---
 
@@ -62,6 +62,7 @@ allowed-tools: Read Write Edit Grep Glob AskUserQuestion
 - 과도한 쉼표 사용
 - 불필요한 느낌표 (안녕하세요!!! → 안녕하세요!)
 - 마침표 누락
+- 가운뎃점(·) 오남용 — 단순 열거(`A·B·C`)에 사용한 경우. 가운뎃점은 짝/공통성분 축약(`금·은·동메달`, `한·미 정상회담`)에만 사용하고, 독립적 대안 나열(`쿠키·세션·JWT`)에는 쉼표를 권장. 상세 규정은 [references/rules.md](references/rules.md) 6번 항목 참조
 
 ### 3단계: 참조 문서 로드 (필요 시)
 
