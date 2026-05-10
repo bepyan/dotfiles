@@ -198,6 +198,16 @@
       "skillFolderHash": "85cce33ef394d03f5984e5d9c308c075541d25be",
       "installedAt": "2026-04-16T11:45:12.821Z",
       "updatedAt": "2026-05-10T00:00:00.000Z"
+    },
+    "zoom-out": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/zoom-out/SKILL.md",
+      "skillFolderHash": "6ecebabdea814d12888f56a611da7bf182b5fb26",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-10T16:36:56.687Z",
+      "updatedAt": "2026-05-10T16:36:56.687Z"
     }
   },
   "dismissed": {
