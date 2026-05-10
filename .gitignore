@@ -2,6 +2,8 @@
 .agents/log/*
 !.agents/log/.gitkeep
 .agents/tmp/
+.agents/plans/*
+!.agents/plans/.gitkeep
 
 local-*/
 local-*
