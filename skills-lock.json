@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "skills": {
+    "textify": {
+      "source": "bepyan/textify-cli",
+      "ref": "main",
+      "sourceType": "github",
+      "skillPath": "skills/textify/SKILL.md",
+      "computedHash": "e88a7c76c8481dce5e17b0b3a4f5db6ea84b6b5e4462fce0f6851b87c7985f86"
+    }
+  }
+}
