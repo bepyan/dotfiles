@@ -1,9 +1,9 @@
 ---
-description: brainstorming → planner 로 spec/plan 산출 (구현은 별도 워크플로에 위임)
+description: brainstorming → planner 로 spec/plan 산출
 argument-hint: <task description>
 meta:
   source: native
-  updateDate: 2026-05-10
+  updateDate: 2026-05-13
 ---
 
 작업: $ARGUMENTS
