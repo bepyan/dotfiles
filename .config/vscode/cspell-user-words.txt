@@ -8,6 +8,7 @@ darkmode
 daum
 daumcdn
 deepmerge
+defu
 embla
 frontmatter
 hono
