@@ -225,6 +225,12 @@
       "sourceType": "github",
       "skillPath": "skills/textify/SKILL.md",
       "computedHash": "e88a7c76c8481dce5e17b0b3a4f5db6ea84b6b5e4462fce0f6851b87c7985f86"
+    },
+    "modern-web-guidance": {
+      "source": "GoogleChrome/modern-web-guidance",
+      "sourceType": "github",
+      "skillPath": "skills/modern-web-guidance/SKILL.md",
+      "computedHash": "9f19aa0e3b554d33b2709c66bb16ad342403e323761f62d6665fbb424c23148d"
     }
   },
   "dismissed": {
