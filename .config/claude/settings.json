@@ -59,6 +59,7 @@
   },
   "outputStyle": "Explanatory",
   "spinnerTipsEnabled": false,
+  "effortLevel": "medium",
   "autoCompactEnabled": false,
   "skipAutoPermissionPrompt": true
 }
