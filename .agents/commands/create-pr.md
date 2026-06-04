@@ -10,9 +10,10 @@ meta:
 
 ## 1. 환경변수 확인
 
-`JIRA_ISSUE_KEY`: 브랜치명에서 티켓 번호를 추출한다.
+`JIRA_ISSUE_KEY`: 브랜치명에서 티켓 키(`PROJECT-NUMBER`)를 추출한다.
+티켓 키 뒤에 설명 접미사가 붙는 브랜치(`feature/PCWSSFE-965-dashboard`)에서도 동작하도록 키 패턴을 매칭한다.
 ```shell
-JIRA_ISSUE_KEY=$(git branch --show-current | sed 's|.*/||')
+JIRA_ISSUE_KEY=$(git branch --show-current | grep -oE '[A-Z]+-[0-9]+')
 ```
 
 `JIRA_ACCESS_TOKEN`: `~/.zshenv`에 설정되어 있다.
