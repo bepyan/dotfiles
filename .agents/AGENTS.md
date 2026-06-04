@@ -31,6 +31,13 @@
 - Make the plan extremely concise. Sacrifice grammar for the sake of concision.
 - At the end of each plan, give me a list of unresolved questions to answer, if any.
 
+## Comments
+
+- Delete comments that merely restate the code.
+- Use comments to expose hidden coupling, constraints, and rationale.
+- Explain why, not what.
+- Document removal criteria for temporary code.
+
 ## Tool Preferences
 
 - Pattern search: `rg -n "pattern" --glob '!node_modules/*'`
