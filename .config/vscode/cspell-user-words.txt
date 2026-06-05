@@ -16,6 +16,7 @@ josa
 KAKAO
 kakaotalk
 libsql
+linkwood
 lucide
 naver
 noti

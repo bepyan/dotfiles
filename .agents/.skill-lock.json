@@ -24,9 +24,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman-compress/SKILL.md",
-      "skillFolderHash": "5cf4be715a9a7f0c3b72b20bedc6364fcbfd4aee",
+      "skillFolderHash": "405938e27e3c90858bc7ed88ff07d6aa0d3cbd2c",
       "installedAt": "2026-04-15T04:05:06.537Z",
-      "updatedAt": "2026-05-10T00:00:00.000Z"
+      "updatedAt": "2026-06-05T02:04:09.000Z"
     },
     "caveman-review": {
       "source": "JuliusBrussee/caveman",
@@ -141,9 +141,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/engineering/improve-codebase-architecture/SKILL.md",
-      "skillFolderHash": "3ad8fa787b3b9b622d1f5a3d0afc27812ac782fa",
+      "skillFolderHash": "688c17ec27fe9309d84987716aca37b5ce7f3a88",
       "installedAt": "2026-04-15T08:02:27.105Z",
-      "updatedAt": "2026-05-10T00:00:00.000Z"
+      "updatedAt": "2026-06-05T02:04:09.000Z"
     },
     "tdd": {
       "source": "mattpocock/skills",
@@ -159,9 +159,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/pbakaus/impeccable.git",
       "skillPath": ".agents/skills/impeccable/SKILL.md",
-      "skillFolderHash": "cefccfd89a8ee7dcd452c30116c3a0b6af58d3ea",
+      "skillFolderHash": "7e268ebe41c4a8ba1e6bccc00674d1ac53f71785",
       "installedAt": "2026-04-15T10:05:52.452Z",
-      "updatedAt": "2026-05-10T00:00:00.000Z"
+      "updatedAt": "2026-06-05T02:04:09.000Z"
     },
     "ko-grammar-checker": {
       "source": "bepyan/korean-skills",
@@ -186,9 +186,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/blader/humanizer.git",
       "skillPath": "SKILL.md",
-      "skillFolderHash": "8b3a17889fbf12bedae20974a3c9f9de746ed754",
+      "skillFolderHash": "47b6a048f525798c945af88d5b09c39fe994704a",
       "installedAt": "2026-04-16T11:41:47.000Z",
-      "updatedAt": "2026-04-16T11:41:47.000Z"
+      "updatedAt": "2026-06-05T02:04:09.000Z"
     },
     "ko-humanizer": {
       "source": "bepyan/korean-skills",
@@ -214,10 +214,10 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/engineering/grill-with-docs/SKILL.md",
-      "skillFolderHash": "2969a1224c70fe41b9dd2ddbe32c2ec62f2815bd",
+      "skillFolderHash": "2c3a4e48571bfe42203ed7b49cae85f31ef4b6f2",
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-05-11T17:22:00.000Z",
-      "updatedAt": "2026-05-11T17:22:00.000Z"
+      "updatedAt": "2026-06-05T02:04:09.000Z"
     },
     "textify": {
       "source": "bepyan/textify-cli",
