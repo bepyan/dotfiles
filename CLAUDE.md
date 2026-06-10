@@ -107,8 +107,8 @@ meta:
 
 ## Skills 추적 정책
 
-- `skills-lock.json` 에 등재된 스킬은 **git에 커밋하지 않는다**. upstream 에서 `npx skills experimental_install` 로 복원 가능하므로 `.gitignore` 의 `.agents/skills/*/` 규칙으로 제외한다.
-- upstream 이 없는 로컬 자작 스킬은 `my-*` 로 명명하고 `.gitignore` 예외 `!.agents/skills/my-*/` 로 추적한다. 비-my- 로컬 스킬을 만들 땐 `.gitignore` 에 `!` 예외를 직접 추가한다.
-- 스킬 추가: `cd .agents && npx skills add <pkg>` → 본체는 `.agents/skills/<name>/`, 추적은 `skills-lock.json` 에 자동 기록. CLI 가 흩뿌리는 다른 agent 디렉터리(`.claude/`, `.continue/` 등)와 `skills-lock.json` 외 부산물은 정리한다.
-- ⚠️ lock 스킬에 로컬 수정을 가하지 말 것 — 복원 시 덮어써진다. 수정이 필요하면 `my-*` 로 fork 한다.
-- 부트스트랩(`.setup.agents.sh`)에는 아직 복원 단계가 없다. fresh 머신에서 lock 스킬을 쓰려면 `cd .agents && npx skills experimental_install` 를 수동 실행한다.
+`.agents/skills/` 본체는 **어느 것도 git에 추적하지 않는다**. `.gitignore` 의 `.agents/skills/*/` 가 모든 스킬 디렉터리를 제외하고, `.gitkeep` 로 디렉터리 자체만 유지한다. 추적 대상은 `.agents/skills-lock.json` (upstream 포인터) 뿐이다.
+
+- **lock 등재 스킬** (upstream 있음): `cd .agents && npx skills add <pkg>` 로 추가하면 본체는 `.agents/skills/<name>/`, 추적은 `skills-lock.json` 에 자동 기록. CLI 가 흩뿌리는 다른 agent 디렉터리(`.claude/`, `.continue/` 등)와 `skills-lock.json` 외 부산물은 정리한다. fresh 머신에서는 `.setup.agents.sh` 가 `skills-lock.json` 기준으로 자동 복원한다.
+- ⚠️ lock 스킬에 로컬 수정을 가하지 말 것 — 복원 시 upstream 최신본으로 덮어써진다. 커스터마이즈가 필요하면 로컬 자작 스킬로 분리한다.
+- **로컬 자작 스킬** (upstream 없음): git·lock 어디에도 들어가지 않는 로컬 전용이다. 이 머신 디스크에만 존재하므로 `git clean`·fresh clone 시 사라진다. 공유·백업이 필요해지면 별도 개인 skills 레포를 만들어 `skills-lock.json` 에 등재한다.

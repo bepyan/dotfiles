@@ -100,6 +100,7 @@ if command -v npx >/dev/null 2>&1 && command -v jq >/dev/null 2>&1 && [ -f "$ski
 
     if [ -n "$missing" ]; then
         echo -e "\n${PURPLE}••••••• restoring skills from skills-lock.json${NC}"
+        mkdir -p "$dotfiles_dir/.agents/skills"
         staging=$(mktemp -d)
         cp "$skills_lock" "$staging/skills-lock.json"
         ( cd "$staging" && npx -y skills@latest experimental_install -y ) >/dev/null 2>&1 || true
