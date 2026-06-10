@@ -84,6 +84,44 @@ ln -sfn "$HOME/.agents/rules" "$HOME/.codex/rules"
 # skills: codex reads $HOME/.agents/skills directly — no symlink needed
 
 ##############################################################
+# Restore skills from skills-lock.json
+# Lock 등재 스킬은 git에 커밋하지 않으므로(.gitignore) fresh clone 에선 본체가 없다.
+# `npx skills` CLI 로 복원하되, CLI 의 멀티-agent fan-out 으로 .agents 가 오염되는 걸
+# 막으려 임시 디렉터리(skills-lock.json 만 존재)에서 돌린 뒤 누락분만 복사한다.
+# 이미 존재하는 스킬(특히 upstream 없는 my-*)은 건드리지 않는다 — 멱등.
+# 주의: lock 에 commit SHA 가 없어 복원은 항상 upstream 최신 HEAD 를 가져온다.
+##############################################################
+
+skills_lock="$dotfiles_dir/.agents/skills-lock.json"
+if command -v npx >/dev/null 2>&1 && command -v jq >/dev/null 2>&1 && [ -f "$skills_lock" ]; then
+    missing=$(jq -r '.skills | keys[]' "$skills_lock" | while read -r name; do
+        [ -d "$dotfiles_dir/.agents/skills/$name" ] || echo "$name"
+    done)
+
+    if [ -n "$missing" ]; then
+        echo -e "\n${PURPLE}••••••• restoring skills from skills-lock.json${NC}"
+        staging=$(mktemp -d)
+        cp "$skills_lock" "$staging/skills-lock.json"
+        ( cd "$staging" && npx -y skills@latest experimental_install -y ) >/dev/null 2>&1 || true
+
+        echo "$missing" | while read -r name; do
+            [ -z "$name" ] && continue
+            if [ -d "$staging/.agents/skills/$name" ]; then
+                rm -rf "$dotfiles_dir/.agents/skills/$name"
+                cp -R "$staging/.agents/skills/$name" "$dotfiles_dir/.agents/skills/$name"
+                echo -e "${GRAY}  ✓ $name${NC}"
+            else
+                echo -e "  ✗ $name ${YELLOW}(복원 실패 — skills-lock.json 확인)${NC}"
+            fi
+        done
+
+        rm -rf "$staging"
+    else
+        echo -e "${GRAY}••••••• skills 복원 불필요 (lock 등재분 전부 존재)${NC}"
+    fi
+fi
+
+##############################################################
 # Verify hook scripts referenced in settings.json exist and are executable
 ##############################################################
 
