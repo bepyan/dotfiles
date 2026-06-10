@@ -103,4 +103,12 @@ meta:
 - `source` 값: `<user>/<repo>` (외부 차용) | `native` (자체 제작) | `<source>-derived` (영감을 받아 축약·재작성).
 - `updateDate`: 마지막 동기화 또는 갱신 날짜 (YYYY-MM-DD).
 - `hooks/*.sh`는 frontmatter가 없으므로, 파일 상단에 `# meta: source=... updateDate=...` 한 줄로 표기한다.
-- `skills/`는 `.skill-lock.json` 자동 추적이 우선이므로 frontmatter `meta:`를 backfill하지 않는다.
+- `skills/`는 `skills-lock.json` 자동 추적이 우선이므로 frontmatter `meta:`를 backfill하지 않는다.
+
+## Skills 추적 정책
+
+- `skills-lock.json` 에 등재된 스킬은 **git에 커밋하지 않는다**. upstream 에서 `npx skills experimental_install` 로 복원 가능하므로 `.gitignore` 의 `.agents/skills/*/` 규칙으로 제외한다.
+- upstream 이 없는 로컬 자작 스킬은 `my-*` 로 명명하고 `.gitignore` 예외 `!.agents/skills/my-*/` 로 추적한다. 비-my- 로컬 스킬을 만들 땐 `.gitignore` 에 `!` 예외를 직접 추가한다.
+- 스킬 추가: `cd .agents && npx skills add <pkg>` → 본체는 `.agents/skills/<name>/`, 추적은 `skills-lock.json` 에 자동 기록. CLI 가 흩뿌리는 다른 agent 디렉터리(`.claude/`, `.continue/` 등)와 `skills-lock.json` 외 부산물은 정리한다.
+- ⚠️ lock 스킬에 로컬 수정을 가하지 말 것 — 복원 시 덮어써진다. 수정이 필요하면 `my-*` 로 fork 한다.
+- 부트스트랩(`.setup.agents.sh`)에는 아직 복원 단계가 없다. fresh 머신에서 lock 스킬을 쓰려면 `cd .agents && npx skills experimental_install` 를 수동 실행한다.

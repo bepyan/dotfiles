@@ -5,5 +5,10 @@
 .agents/plans/*
 !.agents/plans/.gitkeep
 
+# skills-lock.json 에 등재된 스킬은 `npx skills experimental_install` 로 복원하므로 커밋하지 않는다.
+# upstream 이 없는 로컬 자작 스킬(my-*)만 추적한다. 비-my- 로컬 스킬을 추가할 땐 아래에 `!` 예외를 둘 것.
+.agents/skills/*/
+!.agents/skills/my-*/
+
 local-*/
 local-*
