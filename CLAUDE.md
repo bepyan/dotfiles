@@ -109,6 +109,12 @@ meta:
 
 `.agents/skills/` 본체는 **어느 것도 git에 추적하지 않는다**. `.gitignore` 의 `.agents/skills/*/` 가 모든 스킬 디렉터리를 제외하고, `.gitkeep` 로 디렉터리 자체만 유지한다. 추적 대상은 `.agents/skills-lock.json` (upstream 포인터) 뿐이다.
 
-- **lock 등재 스킬** (upstream 있음): `cd .agents && npx skills add <pkg>` 로 추가하면 본체는 `.agents/skills/<name>/`, 추적은 `skills-lock.json` 에 자동 기록. CLI 가 흩뿌리는 다른 agent 디렉터리(`.claude/`, `.continue/` 등)와 `skills-lock.json` 외 부산물은 정리한다. fresh 머신에서는 `.setup.agents.sh` 가 `skills-lock.json` 기준으로 자동 복원한다.
+- **lock 등재 스킬** (upstream 있음): 반드시 `.agents/` 안에서 아래 명령으로 설치한다. 레포 루트에서 실행하면 `.claude/skills/` 등 부산물이 생긴다.
+  ```bash
+  cd .agents
+  npx skills add <owner/repo> -a openclaw --copy --yes
+  ```
+  `-a openclaw`는 `.agents/skills/`를 대상으로 지정하고, `--copy`는 symlink 대신 파일을 직접 복사한다. 설치 후 `skills-lock.json`에 자동 기록된다. fresh 머신에서는 `.setup.agents.sh` 가 `skills-lock.json` 기준으로 자동 복원한다.
+- **번들 리소스가 분리된 스킬**: 일부 레포는 루트 `SKILL.md`와 실제 번들(CSS·템플릿 등)이 서브 경로에 분리되어 있다. 설치 전 레포 구조를 확인하고, 번들이 있으면 수동으로 해당 폴더를 복사한 뒤 `skills-lock.json`의 `skillPath`·`skillFolderHash`를 해당 경로로 직접 수정한다. 현재 해당 스킬: `frontend-slides` (`zarazhangrui/frontend-slides`의 `plugins/frontend-slides/skills/frontend-slides/`)
 - ⚠️ lock 스킬에 로컬 수정을 가하지 말 것 — 복원 시 upstream 최신본으로 덮어써진다. 커스터마이즈가 필요하면 로컬 자작 스킬로 분리한다.
 - **로컬 자작 스킬** (upstream 없음): git·lock 어디에도 들어가지 않는 로컬 전용이다. 이 머신 디스크에만 존재하므로 `git clean`·fresh clone 시 사라진다. 공유·백업이 필요해지면 별도 개인 skills 레포를 만들어 `skills-lock.json` 에 등재한다.
