@@ -12,3 +12,6 @@
 
 local-*/
 local-*
+
+# npx skills가 Claude Code symlink 디렉터리로 생성하는 부산물 — .agents/skills/로 향하는 symlink 모음
+.claude/skills/
