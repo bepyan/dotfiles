@@ -103,18 +103,19 @@ meta:
 - `source` 값: `<user>/<repo>` (외부 차용) | `native` (자체 제작) | `<source>-derived` (영감을 받아 축약·재작성).
 - `updateDate`: 마지막 동기화 또는 갱신 날짜 (YYYY-MM-DD).
 - `hooks/*.sh`는 frontmatter가 없으므로, 파일 상단에 `# meta: source=... updateDate=...` 한 줄로 표기한다.
-- `skills/`는 `skills-lock.json` 자동 추적이 우선이므로 frontmatter `meta:`를 backfill하지 않는다.
+- `skills/`는 `rosie.lock` 자동 추적이 우선이므로 frontmatter `meta:`를 backfill하지 않는다.
 
 ## Skills 추적 정책
 
-`.agents/skills/` 본체는 **어느 것도 git에 추적하지 않는다**. `.gitignore` 의 `.agents/skills/*/` 가 모든 스킬 디렉터리를 제외하고, `.gitkeep` 로 디렉터리 자체만 유지한다. 추적 대상은 `.agents/skills-lock.json` (upstream 포인터) 뿐이다.
+`.agents/skills/` 본체는 **어느 것도 git에 추적하지 않는다**. `.gitignore` 의 `.agents/skills/*/` 가 모든 스킬 디렉터리를 제외하고, `.gitkeep` 로 디렉터리 자체만 유지한다. 추적 대상은 `.agents/rosie.lock` (upstream 포인터 + commit SHA) 뿐이다. 관리 도구는 [`rosie`](https://github.com/matthewp/rosie) 이며 `.brewfile` 에 등재돼 있다.
 
-- **lock 등재 스킬** (upstream 있음): 반드시 `.agents/` 안에서 아래 명령으로 설치한다. 레포 루트에서 실행하면 `.claude/skills/` 등 부산물이 생긴다.
+- **lock 등재 스킬** (upstream 있음): 반드시 **레포 루트**에서 아래 명령으로 설치한다.
   ```bash
-  cd .agents
-  npx skills add <owner/repo> -a openclaw --copy --yes
+  rosie install <owner/repo> [skill] -a gemini-cli -y
   ```
-  `-a openclaw`는 `.agents/skills/`를 대상으로 지정하고, `--copy`는 symlink 대신 파일을 직접 복사한다. 설치 후 `skills-lock.json`에 자동 기록된다. fresh 머신에서는 `.setup.agents.sh` 가 `skills-lock.json` 기준으로 자동 복원한다.
-- **번들 리소스가 분리된 스킬**: 일부 레포는 루트 `SKILL.md`와 실제 번들(CSS·템플릿 등)이 서브 경로에 분리되어 있다. 설치 전 레포 구조를 확인하고, 번들이 있으면 수동으로 해당 폴더를 복사한 뒤 `skills-lock.json`의 `skillPath`·`skillFolderHash`를 해당 경로로 직접 수정한다. 현재 해당 스킬: `frontend-slides` (`zarazhangrui/frontend-slides`의 `plugins/frontend-slides/skills/frontend-slides/`)
-- ⚠️ lock 스킬에 로컬 수정을 가하지 말 것 — 복원 시 upstream 최신본으로 덮어써진다. 커스터마이즈가 필요하면 로컬 자작 스킬로 분리한다.
-- **로컬 자작 스킬** (upstream 없음): git·lock 어디에도 들어가지 않는 로컬 전용이다. 이 머신 디스크에만 존재하므로 `git clean`·fresh clone 시 사라진다. 공유·백업이 필요해지면 별도 개인 skills 레포를 만들어 `skills-lock.json` 에 등재한다.
+  `-a gemini-cli` 의 skills 타깃 경로가 `.agents/skills` 이므로, canonical 실체가 거기에 직접 생기고 다른 agent 디렉터리(`.claude/skills` 등)로 fan-out 하는 부산물이 안 생긴다. skill 인자는 **하나만** 받으므로 같은 레포의 여러 스킬은 각각 호출한다. 설치 후 `rosie.lock` 에 `<name> <owner/repo> <ref> <sha> ...` 형식으로 자동 기록되어 commit SHA 가 핀된다. fresh 머신에서는 `.setup.agents.sh` 가 `rosie install -a gemini-cli -y` 로 lock 전체를 복원한다.
+- **태그에 없는 스킬**: rosie 는 기본으로 레포의 최신 릴리스 태그를 받는다. `in-progress/` 같이 태그에서 제외된 경로의 스킬은 `<owner/repo>@main` 으로 ref 를 명시해야 한다 (lock 에 `pin` 으로 기록됨). 현재 해당 스킬: `loop-me` (`mattpocock/skills@main`).
+- **번들 리소스가 분리된 스킬**: rosie 는 서브경로의 `SKILL.md` 도 자동 discovery 한다 (예: `frontend-slides`). `npx skills` 시절 필요했던 수동 `skillPath` 보정은 더 이상 필요 없다.
+- ⚠️ lock 스킬에 로컬 수정을 가하지 말 것 — `rosie update` 시 upstream 으로 덮어써진다. 커스터마이즈가 필요하면 로컬 자작 스킬로 분리한다.
+- **갱신**: `rosie update [skill-name]` 으로 lock 항목을 재해결해 변경분만 재설치한다.
+- **로컬 자작 스킬** (upstream 없음): git·lock 어디에도 들어가지 않는 로컬 전용이다. 이 머신 디스크에만 존재하므로 `git clean`·fresh clone 시 사라진다. 공유·백업이 필요해지면 별도 개인 skills 레포를 만들어 `rosie install` 로 등재한다. 현재 로컬 자작: `my-*` 8종.

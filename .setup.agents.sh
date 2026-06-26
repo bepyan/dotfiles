@@ -87,42 +87,22 @@ ln -sfn "$HOME/.agents/rules" "$HOME/.codex/rules"
 # skills: codex reads $HOME/.agents/skills directly — no symlink needed
 
 ##############################################################
-# Restore skills from skills-lock.json
+# Restore skills from rosie.lock
 # Lock 등재 스킬은 git에 커밋하지 않으므로(.gitignore) fresh clone 에선 본체가 없다.
-# `npx skills` CLI 로 복원하되, CLI 의 멀티-agent fan-out 으로 .agents 가 오염되는 걸
-# 막으려 임시 디렉터리(skills-lock.json 만 존재)에서 돌린 뒤 누락분만 복사한다.
-# 이미 존재하는 스킬(특히 upstream 없는 my-*)은 건드리지 않는다 — 멱등.
-# 주의: lock 에 commit SHA 가 없어 복원은 항상 upstream 최신 HEAD 를 가져온다.
+# rosie 가 lock 의 commit SHA 를 핀해 재현 가능하게 복원한다.
+# `-a gemini-cli` 로 타깃을 .agents/skills 로 못박아 다른 agent 디렉터리로의
+# fan-out(부산물) 을 막는다. rosie 는 이미 존재하는 스킬을 스킵하므로 멱등하며,
+# upstream 없는 로컬 my-* 스킬은 lock 에 없어 건드리지 않는다.
 ##############################################################
 
-skills_lock="$dotfiles_dir/.agents/skills-lock.json"
-if command -v npx >/dev/null 2>&1 && command -v jq >/dev/null 2>&1 && [ -f "$skills_lock" ]; then
-    missing=$(jq -r '.skills | keys[]' "$skills_lock" | while read -r name; do
-        [ -d "$dotfiles_dir/.agents/skills/$name" ] || echo "$name"
-    done)
-
-    if [ -n "$missing" ]; then
-        echo -e "\n${PURPLE}••••••• restoring skills from skills-lock.json${NC}"
-        mkdir -p "$dotfiles_dir/.agents/skills"
-        staging=$(mktemp -d)
-        cp "$skills_lock" "$staging/skills-lock.json"
-        ( cd "$staging" && npx -y skills@latest experimental_install -y ) >/dev/null 2>&1 || true
-
-        echo "$missing" | while read -r name; do
-            [ -z "$name" ] && continue
-            if [ -d "$staging/.agents/skills/$name" ]; then
-                rm -rf "$dotfiles_dir/.agents/skills/$name"
-                cp -R "$staging/.agents/skills/$name" "$dotfiles_dir/.agents/skills/$name"
-                echo -e "${GRAY}  ✓ $name${NC}"
-            else
-                echo -e "  ✗ $name ${YELLOW}(복원 실패 — skills-lock.json 확인)${NC}"
-            fi
-        done
-
-        rm -rf "$staging"
-    else
-        echo -e "${GRAY}••••••• skills 복원 불필요 (lock 등재분 전부 존재)${NC}"
-    fi
+rosie_lock="$dotfiles_dir/.agents/rosie.lock"
+if command -v rosie >/dev/null 2>&1 && [ -f "$rosie_lock" ]; then
+    echo -e "\n${PURPLE}••••••• restoring skills from rosie.lock${NC}"
+    ( cd "$dotfiles_dir" && rosie install -a gemini-cli -y --no-audit ) >/dev/null 2>&1 \
+        && echo -e "${GRAY}  ✓ rosie.lock 복원 완료${NC}" \
+        || echo -e "  ✗ ${YELLOW}rosie 복원 실패 — 'cd $dotfiles_dir && rosie install -a gemini-cli' 수동 확인${NC}"
+elif [ -f "$rosie_lock" ]; then
+    echo -e "${YELLOW}••••••• rosie 미설치 — skills 복원 생략 (brew bundle 로 rosie 설치 후 재실행)${NC}"
 fi
 
 ##############################################################

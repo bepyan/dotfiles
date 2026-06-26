@@ -52,41 +52,35 @@ readlink "$LINK"   # symlink 가 가리키는 raw 타깃
 
 ## 2. Skill 인벤토리 drift
 
-`~/.agents/.skill-lock.json` 과 `~/.agents/skills/` 디렉토리의 정합성을 확인한다.
+`~/.agents/rosie.lock` 과 `~/.agents/skills/` 디렉토리의 정합성을 확인한다.
 
 ### 검증 방법
 
 ```bash
-# lock 에 등록된 skill
-jq -r '.skills | keys[]' ~/.agents/.skill-lock.json | sort > /tmp/lock.txt
+# lock 에 등록된 skill (rosie.lock 1열 = skill 이름, 주석·빈 줄 제외)
+grep -v '^#' ~/.agents/rosie.lock | awk 'NF {print $1}' | sort > /tmp/lock.txt
 
-# 디렉토리에 실제 존재하는 skill (__ prefix 포함)
+# 디렉토리에 실제 존재하는 skill (my- prefix 로컬 자작 포함)
 ls -1 ~/.agents/skills/ | sort > /tmp/dir.txt
 
 comm -23 /tmp/lock.txt /tmp/dir.txt   # lock-only — 디렉토리 사라짐
-comm -13 /tmp/lock.txt /tmp/dir.txt   # dir-only  — __ prefix 또는 lock 미등록
-comm -12 /tmp/lock.txt /tmp/dir.txt   # 양쪽 존재 — hash 검증 후보
+comm -13 /tmp/lock.txt /tmp/dir.txt   # dir-only  — my- prefix 또는 lock 미등록
+comm -12 /tmp/lock.txt /tmp/dir.txt   # 양쪽 존재 — 정상
 ```
 
-양쪽 존재하는 항목은 hash drift 까지 본다 (`skillFolderHash` 비교):
-
-```bash
-jq -r '.skills | to_entries[] | "\(.key)\t\(.value.skillFolderHash)"' \
-  ~/.agents/.skill-lock.json
-# 각 skill 에 대해 ~/.agents/skills/<name> 의 SHA256 과 대조
-```
+rosie.lock 은 항목마다 commit SHA(4열)를 핀한다. drift 가 의심되면 `rosie update`
+가 재해결한 SHA 와 lock 의 SHA 를 비교한다 (별도 hash 계산 불필요).
 
 ### 분류와 결정
 
-- **lock-only** → 디렉토리 누락, 재설치 필요. lock 의 source URL 로 복구.
-- **dir-only** + `__` prefix → 네이티브 skill, 정상.
-- **dir-only** + non-prefix → 수동 추가분, lock 등록할지 결정.
-- **양쪽 + hash 동일** → OK.
-- **양쪽 + hash 다름** → 로컬 수정됨, lock 갱신 또는 원복 결정.
+- **lock-only** → 디렉토리 누락, 재설치 필요. `cd ~/vscode/dotfiles && rosie install -a gemini-cli -y` 로 복구.
+- **dir-only** + `my-` prefix → 로컬 자작 skill, 정상.
+- **dir-only** + non-prefix → 수동 추가분, `rosie install` 로 lock 등록할지 결정.
+- **양쪽 존재** → OK. 갱신이 필요하면 `rosie update <name>`.
 
 ### 산출물
 
-표 컬럼: `skill / lock / dir / hash / 결정`.
+표 컬럼: `skill / lock / dir / 결정`.
 
 ## 3. Frontmatter 스키마
 
@@ -99,7 +93,7 @@ jq -r '.skills | to_entries[] | "\(.key)\t\(.value.skillFolderHash)"' \
 | `.agents/agents/*.md` | YAML frontmatter | `name`, `description`, `meta.source`, `meta.updateDate` |
 | `.agents/commands/*.md` | YAML frontmatter | `description`, `meta.source`, `meta.updateDate` |
 | `.agents/hooks/*.sh` | 파일 상단 한 줄 주석 | `# meta: source=... updateDate=...` |
-| `.agents/skills/*` | (제외) | `.skill-lock.json` 자동 추적 |
+| `.agents/skills/*` | (제외) | `rosie.lock` 자동 추적 |
 
 ### 검증 방법
 

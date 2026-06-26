@@ -6,7 +6,8 @@
 !.agents/plans/.gitkeep
 
 # .agents/skills/ 본체는 git에 추적하지 않는다 (.gitkeep 로 디렉터리만 유지).
-# - lock 등재 스킬: `npx skills experimental_install` 로 복원 (.setup.agents.sh).
+# 추적 대상은 .agents/rosie.lock (upstream 포인터 + commit SHA) 뿐이다.
+# - lock 등재 스킬: `rosie install` 로 복원 (.setup.agents.sh).
 # - 로컬 자작 스킬: 로컬 전용. 공유가 필요하면 별도 개인 skills 레포로 분리.
 .agents/skills/*/
 
