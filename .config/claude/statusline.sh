@@ -3,7 +3,7 @@
 #
 # Claude Code statusLine renderer. Two-line output, invoked per-refresh.
 # Line 1: user:cwd branch[*] [CAVEMAN]
-# Line 2: ctx ██░░░░ NN% │ 5h ░░░░░ NN% │ 7d ██░░░ NN%
+# Line 2: ctx ██░░░░ NN% │ $146 / $200
 # Reference: https://docs.anthropic.com/en/docs/claude-code/settings#statusline
 
 set -u
@@ -12,6 +12,7 @@ input=$(cat)
 cwd=$(printf '%s' "$input" | jq -r '.workspace.current_dir' | sed "s|$HOME|~|g")
 ctx_remaining=$(printf '%s' "$input" | jq -r '.context_window.remaining_percentage // 100')
 ctx_used=$((100 - ctx_remaining))
+model=$(printf '%s' "$input" | jq -r '.model.display_name // empty')
 
 cd "$(printf '%s' "$input" | jq -r '.workspace.current_dir')" 2>/dev/null
 user=$(git config user.name 2>/dev/null || whoami)
@@ -45,45 +46,8 @@ if [ -f "$caveman_flag" ]; then
 fi
 echo
 
-# ─── Line 2: ctx/5h/7d bars ─────────────────────────────────────────
-cache="$HOME/.claude/statusline-rl-cache.json"
-lock="$HOME/.claude/statusline-rl.lock"
-CACHE_TTL=180   # seconds — cache freshness
-
-# Live values from stdin (may be absent on older Claude Code builds).
-fh_live=$(printf '%s' "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
-sd_live=$(printf '%s' "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
-
-# Merge live values into cache so rendering is consistent across refreshes.
-if [ -n "$fh_live" ] || [ -n "$sd_live" ]; then
-  prev=$( [ -f "$cache" ] && cat "$cache" 2>/dev/null || echo '{}' )
-  printf '%s' "$prev" | jq \
-    --argjson fh "${fh_live:-null}" \
-    --argjson sd "${sd_live:-null}" \
-    '(if $fh != null then .five_hour.used_percentage = $fh else . end)
-     | (if $sd != null then .seven_day.used_percentage = $sd else . end)' \
-    > "$cache.tmp" 2>/dev/null && mv "$cache.tmp" "$cache" 2>/dev/null
-fi
-
-# Trigger background OAuth refresh when cache is stale AND no active lock,
-# but only if stdin didn't already give us live values (no API call needed then).
-now=$(date +%s)
-last=$(jq -r '.api_fetched_at // 0' "$cache" 2>/dev/null)
-last=${last%%.*}
-[[ "$last" =~ ^[0-9]+$ ]] || last=0
-lock_until=$(jq -r '.blocked_until // 0' "$lock" 2>/dev/null)
-lock_until=${lock_until%%.*}
-[[ "$lock_until" =~ ^[0-9]+$ ]] || lock_until=0
-
-if [ -z "$fh_live" ] && [ -z "$sd_live" ] \
-   && (( now - last > CACHE_TTL )) && (( now >= lock_until )); then
-  nohup bash "$HOME/.claude/statusline-fetch-rl.sh" >/dev/null 2>&1 &
-  disown 2>/dev/null || true
-fi
-
-# Resolved values: live wins, otherwise cache.
-_fh=${fh_live:-$(jq -r '.five_hour.used_percentage // empty' "$cache" 2>/dev/null)}
-_sd=${sd_live:-$(jq -r '.seven_day.used_percentage // empty' "$cache" 2>/dev/null)}
+# ─── Line 2: ctx + LiteLLM usage ────────────────────────────────────
+llm_usage_cache="$HOME/.cache/jdai/llm-usage.json"
 
 bar() {
   local p=$1 w=$2 f e i out=''
@@ -106,9 +70,70 @@ render_seg() {
   fi
 }
 
+format_usd() {
+  awk -v n="$1" 'BEGIN {
+    if (n == "") exit 1
+    if (n == int(n)) printf "$%.0f", n
+    else printf "$%.2f", n
+  }'
+}
+
+_cache_mtime() {
+  # BSD stat (macOS) 또는 GNU stat
+  stat -f %m "$1" 2>/dev/null || stat -c %Y "$1" 2>/dev/null || echo 0
+}
+
+_refresh_script="$(dirname "$(readlink -f "${BASH_SOURCE[0]}" 2>/dev/null || echo "$0")")/llm-usage-refresh.sh"
+
+render_litellm_usage() {
+  command -v jq >/dev/null 2>&1 || return 1
+  [ -f "$llm_usage_cache" ] || return 1
+
+  local now mtime age stale=0
+  now=$(date +%s)
+  mtime=$(_cache_mtime "$llm_usage_cache")
+  age=$((now - mtime))
+
+  # 600-1800s: stale 값 표시 + 백그라운드 refresh
+  if [ "$age" -gt 600 ] && [ -f "$_refresh_script" ]; then
+    bash "$_refresh_script" &>/dev/null &
+  fi
+  # 1800s+: stale 플래그
+  [ "$age" -gt 1800 ] && stale=1
+
+  local spend budget spend_label budget_label remaining_pct used_pct
+  spend=$(jq -r '(.conservative_spend_usd // .user_period_spend_usd // .key_spend_usd // empty) | tonumber? // empty' "$llm_usage_cache" 2>/dev/null)
+  budget=$(jq -r '(.budget_usd // empty) | tonumber? // empty' "$llm_usage_cache" 2>/dev/null)
+  [ -n "$spend" ] && [ -n "$budget" ] || return 1
+
+  spend_label=$(format_usd "$spend") || return 1
+  budget_label=$(format_usd "$budget") || return 1
+  remaining_pct=$(jq -r '(.remaining_budget_pct // empty) | tonumber? // empty' "$llm_usage_cache" 2>/dev/null)
+  used_pct=$(awk -v r="${remaining_pct:-0}" 'BEGIN{printf "%.0f", 100 - r}')
+
+  # 색상: <80% dim / 80-89% yellow / >=90% red / stale gray
+  local color
+  if [ "$stale" -eq 1 ]; then
+    color=$K
+  elif [ "$used_pct" -lt 80 ]; then
+    color=$K
+  elif [ "$used_pct" -lt 90 ]; then
+    color=$Y
+  else
+    color=$'\033[38;2;255;100;100m'
+  fi
+
+  if [ "$stale" -eq 1 ]; then
+    printf '%s%s / %s (stale)%s' "$color" "$spend_label" "$budget_label" "$R"
+  else
+    printf '%s%s / %s%s' "$color" "$spend_label" "$budget_label" "$R"
+  fi
+}
+
 render_seg "ctx" "$ctx_used" 6
-printf '%s │ %s' "$K" "$R"
-render_seg "5h"  "$_fh"       5
-printf '%s │ %s' "$K" "$R"
-render_seg "7d"  "$_sd"       5
+[ -n "$model" ] && printf '%s │ %s%s' "$K" "$model" "$R"
+if llm_usage=$(render_litellm_usage); then
+  printf '%s │ %s' "$K" "$R"
+  printf '%s' "$llm_usage"
+fi
 echo

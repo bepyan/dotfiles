@@ -65,6 +65,9 @@ ln -sfn "$dotfiles_dir/.config/claude/statusline.sh" "$HOME/.claude/statusline.s
 rm -rf "$HOME/.claude/statusline-fetch-rl.sh"
 ln -sfn "$dotfiles_dir/.config/claude/statusline-fetch-rl.sh" "$HOME/.claude/statusline-fetch-rl.sh"
 
+rm -rf "$HOME/.claude/llm-usage-refresh.sh"
+ln -sfn "$dotfiles_dir/.config/claude/llm-usage-refresh.sh" "$HOME/.claude/llm-usage-refresh.sh"
+
 ##############################################################
 # Codex
 ##############################################################
