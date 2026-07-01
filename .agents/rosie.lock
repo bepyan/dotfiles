@@ -36,6 +36,12 @@ loop-me mattpocock/skills main 5d78bd0903420f97c791f834201e550c765699f8 2026-06-
 migrate-to-shoehorn mattpocock/skills v1.0.1 2454c95dc305c158b21a0cdafeb728879dd0359a 2026-06-26T04:02:57Z auto skill
 modern-web-guidance GoogleChrome/modern-web-guidance v0.0.174 2354c8c5856602e0730d7c65d91f1c29ffc479ee 2026-06-26T04:02:59Z auto skill
 obsidian-vault mattpocock/skills v1.0.1 2454c95dc305c158b21a0cdafeb728879dd0359a 2026-06-26T04:03:01Z auto skill
+ponytail DietrichGebert/ponytail v4.8.3 025da371cd7539c3eb0ad859b08b3ca55e695f16 2026-06-27T14:49:42Z auto skill
+ponytail-audit DietrichGebert/ponytail v4.8.3 025da371cd7539c3eb0ad859b08b3ca55e695f16 2026-06-27T14:49:42Z auto skill
+ponytail-debt DietrichGebert/ponytail v4.8.3 025da371cd7539c3eb0ad859b08b3ca55e695f16 2026-06-27T14:49:42Z auto skill
+ponytail-gain DietrichGebert/ponytail v4.8.3 025da371cd7539c3eb0ad859b08b3ca55e695f16 2026-06-27T14:49:42Z auto skill
+ponytail-help DietrichGebert/ponytail v4.8.3 025da371cd7539c3eb0ad859b08b3ca55e695f16 2026-06-27T14:49:42Z auto skill
+ponytail-review DietrichGebert/ponytail v4.8.3 025da371cd7539c3eb0ad859b08b3ca55e695f16 2026-06-27T14:49:42Z auto skill
 prototype mattpocock/skills v1.0.1 2454c95dc305c158b21a0cdafeb728879dd0359a 2026-06-26T04:03:03Z auto skill
 qa mattpocock/skills v1.0.1 2454c95dc305c158b21a0cdafeb728879dd0359a 2026-06-26T04:03:05Z auto skill
 receiving-code-review obra/superpowers v6.0.3 896224c4b1879920ab573417e68fd51d2ccc9072 2026-06-26T04:03:06Z auto skill
