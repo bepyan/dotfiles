@@ -13,6 +13,7 @@ cwd=$(printf '%s' "$input" | jq -r '.workspace.current_dir' | sed "s|$HOME|~|g")
 ctx_remaining=$(printf '%s' "$input" | jq -r '.context_window.remaining_percentage // 100')
 ctx_used=$((100 - ctx_remaining))
 model=$(printf '%s' "$input" | jq -r '.model.display_name // empty')
+transcript=$(printf '%s' "$input" | jq -r '.transcript_path // empty')
 
 cd "$(printf '%s' "$input" | jq -r '.workspace.current_dir')" 2>/dev/null
 user=$(git config user.name 2>/dev/null || whoami)
@@ -130,6 +131,16 @@ render_litellm_usage() {
   fi
 }
 
+# transcript에서 현 세션 최신 plan 파일 절대경로 추출 → ~ 축약.
+# awk single-pass = 마지막 매치만 취함(BSD/GNU 무관, tac 불필요).
+current_plan_file() {
+  [ -n "$transcript" ] && [ -f "$transcript" ] || return 1
+  local p
+  p=$(awk -F'"planFilePath":"' 'NF>1{split($2,a,"\""); p=a[1]} END{print p}' "$transcript")
+  [ -n "$p" ] && [ -f "$p" ] || return 1   # planExists(stale) 대신 실시간 검사
+  printf '%s' "$p" | sed "s|$HOME|~|"      # line1 cwd 표기와 동일 관례
+}
+
 render_seg "ctx" "$ctx_used" 6
 [ -n "$model" ] && printf '%s │ %s%s' "$K" "$model" "$R"
 if llm_usage=$(render_litellm_usage); then
@@ -137,3 +148,8 @@ if llm_usage=$(render_litellm_usage); then
   printf '%s' "$llm_usage"
 fi
 echo
+
+# ─── Line 3: 현재 세션 계획서 (있을 때만) ───────────────────────
+if plan_path=$(current_plan_file); then
+  printf '%splan: %s%s\n' "$K" "$plan_path" "$R"
+fi
