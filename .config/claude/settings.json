@@ -40,9 +40,7 @@
       "TaskStop",
       "Skill"
     ],
-    "deny": [
-      "Bash(sudo *)"
-    ],
+    "deny": ["Bash(sudo *)"],
     "defaultMode": "plan"
   },
   "model": "opus",
