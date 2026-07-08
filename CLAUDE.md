@@ -117,5 +117,5 @@ meta:
 - **태그에 없는 스킬**: rosie 는 기본으로 레포의 최신 릴리스 태그를 받는다. `in-progress/` 같이 태그에서 제외된 경로의 스킬은 `<owner/repo>@main` 으로 ref 를 명시해야 한다 (lock 에 `pin` 으로 기록됨). 현재 해당 스킬: `loop-me` (`mattpocock/skills@main`).
 - **번들 리소스가 분리된 스킬**: rosie 는 서브경로의 `SKILL.md` 도 자동 discovery 한다 (예: `frontend-slides`). `npx skills` 시절 필요했던 수동 `skillPath` 보정은 더 이상 필요 없다.
 - ⚠️ lock 스킬에 로컬 수정을 가하지 말 것 — `rosie update` 시 upstream 으로 덮어써진다. 커스터마이즈가 필요하면 로컬 자작 스킬로 분리한다.
-- **갱신**: `rosie update [skill-name]` 으로 lock 항목을 재해결해 변경분만 재설치한다.
+- **갱신**: 반드시 `-a gemini-cli` 를 붙여 `rosie update -a gemini-cli [skill-name]` 으로 실행한다. `-a` 없이 `rosie update` 만 실행하면 install 때의 agent 한정이 풀려, 감지된 **모든** agent(`.claude`·`.cursor`·`.codex`·`.opencode`·`.continue`·`.pi`)의 repo-root 디렉터리로 스킬이 fan-out 되는 부산물이 생긴다. 만약 인자 없이 실행해 부산물이 생겼다면 `.agents/skills` 를 제외한 그 디렉터리들을 지운다 — 단 `.claude/commands/` 처럼 git 추적 파일이 섞인 경우 `.claude/` 를 통째로 지우지 말고 `.claude/skills/` 만 지운 뒤 `git checkout -- <추적파일>` 로 복원한다.
 - **로컬 자작 스킬** (upstream 없음): git·lock 어디에도 들어가지 않는 로컬 전용이다. 이 머신 디스크에만 존재하므로 `git clean`·fresh clone 시 사라진다. 공유·백업이 필요해지면 별도 개인 skills 레포를 만들어 `rosie install` 로 등재한다. 현재 로컬 자작: `my-*` 8종.
