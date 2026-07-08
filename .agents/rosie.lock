@@ -10,6 +10,8 @@ caveman-review JuliusBrussee/caveman v1.9.0 32f37af81a02a4b91c107b768f1365848e5b
 caveman-stats JuliusBrussee/caveman v1.9.0 32f37af81a02a4b91c107b768f1365848e5bf005 2026-06-26T04:02:10Z auto skill
 chrome-extensions GoogleChrome/modern-web-guidance v0.0.174 2354c8c5856602e0730d7c65d91f1c29ffc479ee 2026-06-26T04:02:12Z auto skill
 codebase-design mattpocock/skills v1.0.1 2454c95dc305c158b21a0cdafeb728879dd0359a 2026-06-26T04:02:14Z auto skill
+cohesion toss/frontend-fundamentals main 161d3d6a0d6d372eacd75036de567511643f6265 2026-07-08T04:44:13Z auto skill
+coupling toss/frontend-fundamentals main 161d3d6a0d6d372eacd75036de567511643f6265 2026-07-08T04:44:24Z auto skill
 decision-mapping mattpocock/skills v1.0.1 2454c95dc305c158b21a0cdafeb728879dd0359a 2026-06-26T04:02:15Z auto skill
 design-an-interface mattpocock/skills v1.0.1 2454c95dc305c158b21a0cdafeb728879dd0359a 2026-06-26T04:02:17Z auto skill
 diagnosing-bugs mattpocock/skills v1.0.1 2454c95dc305c158b21a0cdafeb728879dd0359a 2026-06-26T04:02:19Z auto skill
@@ -42,8 +44,10 @@ ponytail-debt DietrichGebert/ponytail v4.8.3 025da371cd7539c3eb0ad859b08b3ca55e6
 ponytail-gain DietrichGebert/ponytail v4.8.3 025da371cd7539c3eb0ad859b08b3ca55e695f16 2026-06-27T14:49:42Z auto skill
 ponytail-help DietrichGebert/ponytail v4.8.3 025da371cd7539c3eb0ad859b08b3ca55e695f16 2026-06-27T14:49:42Z auto skill
 ponytail-review DietrichGebert/ponytail v4.8.3 025da371cd7539c3eb0ad859b08b3ca55e695f16 2026-06-27T14:49:42Z auto skill
+predictability toss/frontend-fundamentals main 161d3d6a0d6d372eacd75036de567511643f6265 2026-07-08T04:44:30Z auto skill
 prototype mattpocock/skills v1.0.1 2454c95dc305c158b21a0cdafeb728879dd0359a 2026-06-26T04:03:03Z auto skill
 qa mattpocock/skills v1.0.1 2454c95dc305c158b21a0cdafeb728879dd0359a 2026-06-26T04:03:05Z auto skill
+readability toss/frontend-fundamentals main 161d3d6a0d6d372eacd75036de567511643f6265 2026-07-08T04:44:35Z auto skill
 receiving-code-review obra/superpowers v6.0.3 896224c4b1879920ab573417e68fd51d2ccc9072 2026-06-26T04:03:06Z auto skill
 repomix-explorer yamadashy/repomix v1.15.0 bb4ac4763faeb7fc3d31438f072a6946b5b290b9 2026-06-26T04:03:09Z auto skill
 request-refactor-plan mattpocock/skills v1.0.1 2454c95dc305c158b21a0cdafeb728879dd0359a 2026-06-26T04:03:10Z auto skill
