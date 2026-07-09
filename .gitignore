@@ -5,22 +5,7 @@
 .agents/plans/*
 !.agents/plans/.gitkeep
 
-# .agents/skills/ 본체는 git에 추적하지 않는다 (.gitkeep 로 디렉터리만 유지).
-# 추적 대상은 .agents/rosie.lock (upstream 포인터 + commit SHA) 뿐이다.
-# - lock 등재 스킬: `rosie install` 로 복원 (.setup.agents.sh).
-# - 로컬 자작 스킬: 로컬 전용. 공유가 필요하면 별도 개인 skills 레포로 분리.
-.agents/skills/*/
-
-# rosie fan-out 부산물: `rosie update` 를 `-a gemini-cli` 없이 실행하면
-# 감지된 모든 agent 의 repo-root skills 디렉터리로 스킬이 퍼진다.
-# canonical 은 .agents/skills 뿐이므로 나머지는 무시한다.
-# .claude 는 commands 등 추적 파일이 있어 skills/ 만 겨냥한다.
-/.claude/skills/
-/.cursor/
-/.codex/
-/.opencode/
-/.continue/
-/.pi/
+.agents/skills/
 
 local-*/
 local-*
