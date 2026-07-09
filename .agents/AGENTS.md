@@ -33,10 +33,10 @@
 
 ## Comments
 
-- Delete comments that merely restate the code.
+- Don't write comments that merely restate the code.
 - Use comments to expose hidden coupling, constraints, and rationale.
-- Explain why, not what.
 - Document removal criteria for temporary code.
+- Using JSDoc format for human.
 
 ## Tool Preferences
 
