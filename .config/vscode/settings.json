@@ -25,12 +25,16 @@
   "files.autoSave": "onFocusChange",
   "git.autoRepositoryDetection": "openEditors",
   "git.confirmSync": false,
+  "git.replaceTagsWhenPull": true,
   "update.showReleaseNotes": false,
   "workbench.colorTheme": "Vesper",
+  "workbench.preferredLightColorTheme": "Vesper",
+  "workbench.preferredDarkColorTheme": "Vesper",
   "workbench.iconTheme": "material-icon-theme",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "cursor.general.emailPrivacyEnabled": true,
   "explorer.confirmDragAndDrop": false,
-  "git.replaceTagsWhenPull": true
+  "cursor.composer.showEmptyStateTips": false,
+  "cursor.composer.shouldChimeAfterChatFinishes": true
 }

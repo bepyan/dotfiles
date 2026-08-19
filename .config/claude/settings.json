@@ -1,25 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "apiKeyHelper": "/Users/edward.kk/.local/bin/claude-auth-helper",
-  "env": {
-    "ANTHROPIC_BEDROCK_BASE_URL": "https://llm-dashboard.onkakao.net/bedrock",
-    "API_TIMEOUT_MS": "1200000",
-    "AWS_REGION": "us-east-1",
-    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1",
-    "CLAUDE_CODE_SKIP_BEDROCK_AUTH": "1",
-    "CLAUDE_CODE_USE_BEDROCK": "1",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "global.anthropic.claude-opus-4-8[1m]",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL_NAME": "Opus 4.8 (1M)",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL_DESCRIPTION": "Opus 4.8 · 1M context, most capable",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL_SUPPORTED_CAPABILITIES": "effort,xhigh_effort,max_effort,thinking,adaptive_thinking,interleaved_thinking",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "global.anthropic.claude-sonnet-4-6[1m]",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL_NAME": "Sonnet 4.6 (1M)",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL_DESCRIPTION": "Sonnet 4.6 · 1M context for large codebases",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL_SUPPORTED_CAPABILITIES": "effort,max_effort,thinking,adaptive_thinking,interleaved_thinking",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL_NAME": "Haiku 4.5",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL_DESCRIPTION": "Haiku 4.5 · Fastest for quick answers"
-  },
   "permissions": {
     "allow": [
       "Read",
@@ -40,10 +20,12 @@
       "TaskStop",
       "Skill"
     ],
-    "deny": ["Bash(sudo *)"],
+    "deny": [
+      "Bash(sudo *)"
+    ],
     "defaultMode": "plan"
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -68,6 +50,7 @@
       }
     ]
   },
+  "workflowKeywordTriggerEnabled": false,
   "statusLine": {
     "type": "command",
     "command": "bash $HOME/.claude/statusline.sh"
@@ -78,6 +61,8 @@
   "outputStyle": "Explanatory",
   "spinnerTipsEnabled": false,
   "effortLevel": "high",
+  "autoMemoryEnabled": false,
+  "theme": "dark",
   "autoCompactEnabled": false,
   "skipAutoPermissionPrompt": true
 }
