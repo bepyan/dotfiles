@@ -114,7 +114,7 @@ meta:
   rosie install <owner/repo> [skill] -a gemini-cli -y
   ```
   `-a gemini-cli` 의 skills 타깃 경로가 `.agents/skills` 이므로, canonical 실체가 거기에 직접 생기고 다른 agent 디렉터리(`.claude/skills` 등)로 fan-out 하는 부산물이 안 생긴다. skill 인자는 **하나만** 받으므로 같은 레포의 여러 스킬은 각각 호출한다. 설치 후 `rosie.lock` 에 `<name> <owner/repo> <ref> <sha> ...` 형식으로 자동 기록되어 commit SHA 가 핀된다. fresh 머신에서는 `.setup.agents.sh` 가 `rosie install -a gemini-cli -y` 로 lock 전체를 복원한다.
-- **태그에 없는 스킬**: rosie 는 기본으로 레포의 최신 릴리스 태그를 받는다. `in-progress/` 같이 태그에서 제외된 경로의 스킬은 `<owner/repo>@main` 으로 ref 를 명시해야 한다 (lock 에 `pin` 으로 기록됨). 현재 해당 스킬: `loop-me` (`mattpocock/skills@main`).
+- **태그에 없는 스킬**: rosie 는 기본으로 레포의 최신 릴리스 태그를 받는다. `in-progress/` 같이 태그에서 제외된 경로의 스킬은 `<owner/repo>@main` 으로 ref 를 명시해야 한다 (lock 에 `pin` 으로 기록됨). 현재 해당 스킬 없음.
 - **번들 리소스가 분리된 스킬**: rosie 는 서브경로의 `SKILL.md` 도 자동 discovery 한다 (예: `frontend-slides`). `npx skills` 시절 필요했던 수동 `skillPath` 보정은 더 이상 필요 없다.
 - ⚠️ lock 스킬에 로컬 수정을 가하지 말 것 — `rosie update` 시 upstream 으로 덮어써진다. 커스터마이즈가 필요하면 로컬 자작 스킬로 분리한다.
 - **갱신**: 반드시 `-a gemini-cli` 를 붙여 `rosie update -a gemini-cli [skill-name]` 으로 실행한다. `-a` 없이 `rosie update` 만 실행하면 install 때의 agent 한정이 풀려, 감지된 **모든** agent(`.claude`·`.cursor`·`.codex`·`.opencode`·`.continue`·`.pi`)의 repo-root 디렉터리로 스킬이 fan-out 되는 부산물이 생긴다. 만약 인자 없이 실행해 부산물이 생겼다면 `.agents/skills` 를 제외한 그 디렉터리들을 지운다 — 단 `.claude/commands/` 처럼 git 추적 파일이 섞인 경우 `.claude/` 를 통째로 지우지 말고 `.claude/skills/` 만 지운 뒤 `git checkout -- <추적파일>` 로 복원한다.
