@@ -1,0 +1,25 @@
+[user]
+	name = edward.kk(김평안)/kakao
+	email = edward.kk@kakaocorp.com
+[core]
+	precomposeunicode = true
+	quotepath = false
+[pull]
+	rebase = false
+[http]
+	postBuffer = 1048576000
+[push]
+	autoSetupRemote = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+# gitdir matches the .git path (worktrees: <repo>/.git/worktrees/<name>),
+# not the working tree. Conductor workspaces under ~/conductor/ still
+# resolve to ~/kakao/* or ~/vscode/* so these includes apply.
+[includeIf "gitdir:~/kakao/"]
+	path = ~/.config/git/kakao
+[includeIf "gitdir:~/vscode/"]
+	path = ~/.config/git/vscode
