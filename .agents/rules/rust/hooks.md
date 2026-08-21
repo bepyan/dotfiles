@@ -3,6 +3,7 @@ paths:
   - "**/*.rs"
   - "**/Cargo.toml"
 ---
+
 # Rust Hooks
 
 ## PostToolUse Hooks

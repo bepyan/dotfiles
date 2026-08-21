@@ -5,6 +5,7 @@ paths:
   - "**/*.js"
   - "**/*.jsx"
 ---
+
 # TypeScript/JavaScript Hooks
 
 ## PostToolUse Hooks
