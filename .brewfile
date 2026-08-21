@@ -8,7 +8,7 @@
 cask_args no_quarantine: true
 
 # better cask upgrading (see `cu`)
-tap "buo/cask-upgrade"
+tap "buo/cask-upgrade", trusted: { command: "cu" }
 
 ##############################################################
 ##### Unix/CLI tools
@@ -64,7 +64,7 @@ brew "docker"
 brew "mkcert"
 
 # rosie: agent skills 관리 CLI (.agents/skills 복원 — .setup.agents.sh)
-brew "withastro/rosie/rosie"
+brew "withastro/rosie/rosie", trusted: true
 
 cask "android-platform-tools"
 cask "android-studio"
