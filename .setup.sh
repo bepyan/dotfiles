@@ -32,7 +32,7 @@ else
 fi
 
 # 3) Install Packages & Apps
-source "$current_dir/.brew.sh"
+source "$DOTFILES_DIR/.brew.sh"
 
 # 4) Run the main setup script
 cd "$DOTFILES_DIR"
