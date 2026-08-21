@@ -2,7 +2,7 @@
 
 macOS workstation setup. 한 repo에 두 얼굴이 공존한다.
 
-- **macOS bootstrap** — Homebrew manifest, VSCode·Cursor·Ghostty·zsh 설정, Node·Bun·Rust·Python toolchain, `macOS defaults write` tweaks.
+- **macOS bootstrap** — Homebrew manifest, VSCode·Cursor·Ghostty·zsh 설정, Node·Bun·Vite+·Rust·Python toolchain, `macOS defaults write` tweaks.
 - **Multi-AI harness hub** — `.agents/`에 instruction·subagent·command·rule·skill을 집약하고, symlink로 Claude Code·Codex·Gemini에 fan-out 한다.
 
 ## 저장소 구조
@@ -31,7 +31,7 @@ CLAUDE.md                  # 이 파일 (Claude Code가 repo root에서 읽음)
 | 스크립트 | 용도 |
 |---|---|
 | `.setup.sh` | 원격 bootstrap. Xcode CLT를 설치하고 `~/vscode/dotfiles`로 clone한 뒤, `.brew.sh`를 source하고 `.setup.main.sh`를 exec 한다. |
-| `.setup.main.sh` | 전체 local setup. `.config/*` symlink, VSCode·Cursor 설정 wiring, nvm+Node 24+pnpm, Bun, rustup, uv+Python 3.13, Claude Code, `gh`를 설치하고 `.setup.agents.sh`와 `.macos.sh`를 source 한다. |
+| `.setup.main.sh` | 전체 local setup. `.config/*` symlink, VSCode·Cursor 설정 wiring, nvm+Node 24+pnpm, Bun, Vite+ (`vp`), rustup, uv+Python 3.13, Claude Code, `gh`를 설치하고 `.setup.agents.sh`와 `.macos.sh`를 source 한다. |
 | `.setup.agents.sh` | Global agent wiring (단독 실행 가능). |
 | `.setup.agents.project.sh <dir>` | 타 프로젝트에 `.agents/` 구조를 scaffold 한다. |
 | `.brew.sh` | `.brewfile`과 `.brewfile.vscode`로 `brew bundle`을 실행한다 (Code·Cursor 양쪽에 확장 설치). |

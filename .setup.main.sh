@@ -78,6 +78,14 @@ else
     echo -e "${GRAY}---- bun already installed, skipping${NC}"
 fi
 
+echo -e "\n${YELLOW}---- Setting up Vite+${NC}"
+if [ ! -d "$HOME/.vite-plus" ]; then
+    # nvm already owns Node; skip the interactive node-manager prompt
+    curl -fsSL https://vite.plus | VP_NODE_MANAGER=no bash
+else
+    echo -e "${GRAY}---- vite+ already installed, skipping${NC}"
+fi
+
 echo -e "\n${YELLOW}---- Setting up Rust${NC}"
 if [ ! -d "$HOME/.rustup" ]; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
