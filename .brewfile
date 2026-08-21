@@ -4,9 +4,6 @@
 ##############################################################
 ##### Settings
 
-# set arguments for all 'brew cask install' commands
-cask_args no_quarantine: true
-
 # better cask upgrading (see `cu`)
 tap "buo/cask-upgrade", trusted: { command: "cu" }
 
@@ -30,7 +27,7 @@ brew "zsh-syntax-highlighting"  # → activated in .setup.main.sh
 ##### Mac apps
 
 brew "mas"
-mas "RunCat", id: 1429033973
+mas "RunCat Neo", id: 6757801838
 mas "KakaoTalk", id: 869223134
 mas "한글오피스 Viewer", id: 416746898
 
