@@ -31,13 +31,13 @@ echo -e "\n${YELLOW}---- Homebrew updates${NC}"
 echo -e "${GRAY}---- Turning homebrew analytics off.${NC}"
 brew analytics off
 
-echo -e "\n${PURPLE}---- clean up to match brewfile ${NC}"
-brew bundle --force cleanup --file="$dotfiles_dir/.brewfile"
-
 echo -e "\n${PURPLE}---- installing from brewfile${NC}"
 brew bundle install -v --file="$dotfiles_dir/.brewfile"
 brew bundle install -v --file="$dotfiles_dir/.brewfile.vscode"
 HOMEBREW_BUNDLE_VSCODE_COMMAND="cursor" brew bundle install -v --file="$dotfiles_dir/.brewfile.vscode"
+
+echo -e "\n${PURPLE}---- clean up to match brewfile ${NC}"
+brew bundle --force cleanup --file="$dotfiles_dir/.brewfile"
 
 echo -e "\n${PURPLE}---- cask upgrade (via cu) ${NC}"
 brew cu --all --cleanup --yes

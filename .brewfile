@@ -64,8 +64,7 @@ brew "docker"
 brew "mkcert"
 
 # rosie: agent skills 관리 CLI (.agents/skills 복원 — .setup.agents.sh)
-tap "withastro/rosie"
-brew "rosie"
+brew "withastro/rosie/rosie"
 
 cask "android-platform-tools"
 cask "android-studio"
