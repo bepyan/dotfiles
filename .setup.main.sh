@@ -37,6 +37,7 @@ vscode_targets=(
 )
 for target in "${vscode_targets[@]}"; do
     target_dir="$(dirname "$target")"
+    mkdir -p "$target_dir"
     rm -f "$target"
     echo -e "${PURPLE}••••••• symlinking $vscode_settings -> $target${NC}"
     ln -sfn "$vscode_settings" "$target"
