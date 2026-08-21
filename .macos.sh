@@ -90,6 +90,17 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 defaults write com.apple.dock autohide -bool true
 
 ###############################################################################
+# Date & Time
+###############################################################################
+
+echo -e "${PURPLE}---- Configuring Date & Time settings...${NC}"
+
+# 24-hour time (System Settings > General > Date & Time)
+defaults write NSGlobalDomain AppleICUForce24HourTime -bool true
+# Login screen / FileVault unlock clock (user prefs are not readable yet)
+sudo defaults write /Library/Preferences/.GlobalPreferences AppleICUForce24HourTime -bool true
+
+###############################################################################
 # Trackpad
 ###############################################################################
 
