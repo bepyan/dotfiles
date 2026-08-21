@@ -33,8 +33,8 @@ brew analytics off
 
 echo -e "\n${PURPLE}---- installing from brewfile${NC}"
 brew bundle install -v --file="$dotfiles_dir/.brewfile"
-brew bundle install -v --file="$dotfiles_dir/.brewfile.vscode"
-HOMEBREW_BUNDLE_VSCODE_COMMAND="cursor" brew bundle install -v --file="$dotfiles_dir/.brewfile.vscode"
+brew bundle install -v --jobs 1 --file="$dotfiles_dir/.brewfile.vscode"
+HOMEBREW_BUNDLE_VSCODE_COMMAND="cursor" brew bundle install -v --jobs 1 --file="$dotfiles_dir/.brewfile.vscode"
 
 echo -e "\n${PURPLE}---- clean up to match brewfile ${NC}"
 brew bundle --force cleanup --file="$dotfiles_dir/.brewfile"
