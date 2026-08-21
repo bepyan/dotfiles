@@ -17,6 +17,16 @@ dotfiles_dir="${current_dir:-$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)}"
 echo -e "\n${YELLOW}---- Asking for an admin password upfront${NC}"
 sudo -v
 
+if [ ! -x /opt/homebrew/bin/brew ] && [ ! -x /usr/local/bin/brew ]; then
+    echo -e "\n${YELLOW}---- Installing Homebrew${NC}"
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+if [ -x /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
+
 echo -e "\n${YELLOW}---- Homebrew updates${NC}"
 echo -e "${GRAY}---- Turning homebrew analytics off.${NC}"
 brew analytics off
