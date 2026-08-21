@@ -19,7 +19,6 @@ files_to_link=(
     .config/ghostty
     .config/zsh
     .config/vscode
-    .config/conductor
 )
 mkdir -p "$HOME/.config"
 for file in "${files_to_link[@]}"; do
