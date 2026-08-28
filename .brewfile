@@ -10,6 +10,7 @@ tap "buo/cask-upgrade", trusted: { command: "cu" }
 ##############################################################
 ##### Unix/CLI tools
 
+brew "argc"        # bash cli framework / command runner
 brew "bash"        # esp. when you run scripts macOS is still on 3.2
 brew "bat"         # replace cat
 brew "fd"          # replace find
