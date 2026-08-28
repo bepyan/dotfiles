@@ -50,4 +50,14 @@ echo -e "\n${PURPLE}---- upgrading packages${NC}"
 echo -e "${GRAY}does the actual upgrade of packages to update formulate from above step${NC}"
 brew upgrade
 
+echo -e "\n${PURPLE}---- Xcode / iOS Simulator${NC}"
+if [ -d /Applications/Xcode.app ]; then
+    sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+    sudo xcodebuild -license accept
+    sudo xcodebuild -runFirstLaunch
+    xcodebuild -downloadPlatform iOS
+else
+    echo -e "${GRAY}---- Xcode.app not found (mas install may need App Store sign-in)${NC}"
+fi
+
 echo -e "\n${YELLOW}---- Homebrew setup complete ✔${NC}"
