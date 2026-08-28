@@ -1,7 +1,6 @@
 # rosie-lock v1
 apple-design emilkowalski/skills main d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7 2026-08-21T15:28:51Z auto skill
 ask-matt mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:35:14Z auto skill
-brainstorming obra/superpowers v6.3.0 b36e0829c6d0140e93cfef2ca599b1b07d4a7797 2026-08-21T15:28:53Z auto skill
 cavecrew JuliusBrussee/caveman v2.2.0 9aa63945a349bef17206540650db48c30fafbdf2 2026-08-21T15:28:55Z auto skill
 caveman JuliusBrussee/caveman v2.2.0 9aa63945a349bef17206540650db48c30fafbdf2 2026-08-21T15:28:57Z auto skill
 caveman-commit JuliusBrussee/caveman v2.2.0 9aa63945a349bef17206540650db48c30fafbdf2 2026-08-21T15:29:00Z auto skill
@@ -16,11 +15,8 @@ codebase-design mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07
 cohesion toss/frontend-fundamentals main 161d3d6a0d6d372eacd75036de567511643f6265 2026-08-21T05:35:47Z auto skill
 coupling toss/frontend-fundamentals main 161d3d6a0d6d372eacd75036de567511643f6265 2026-08-21T05:35:56Z auto skill
 diagnosing-bugs mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:35:58Z auto skill
-dispatching-parallel-agents obra/superpowers v6.3.0 b36e0829c6d0140e93cfef2ca599b1b07d4a7797 2026-08-21T15:29:13Z auto skill
 domain-modeling mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:36:02Z auto skill
 emil-design-eng emilkowalski/skill main d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7 2026-08-21T15:29:14Z auto skill
-executing-plans obra/superpowers v6.3.0 b36e0829c6d0140e93cfef2ca599b1b07d4a7797 2026-08-21T15:29:16Z auto skill
-finishing-a-development-branch obra/superpowers v6.3.0 b36e0829c6d0140e93cfef2ca599b1b07d4a7797 2026-08-21T15:29:18Z auto skill
 frontend-slides zarazhangrui/frontend-slides v2.1.0 24e420e4acef9850505142c449415ac867e43633 2026-08-21T05:36:09Z auto skill
 git-guardrails-claude-code mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:36:11Z auto skill
 grill-me mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:36:13Z auto skill
@@ -49,7 +45,6 @@ prototype mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026
 readability toss/frontend-fundamentals main 161d3d6a0d6d372eacd75036de567511643f6265 2026-08-21T05:37:05Z auto skill
 receiving-code-review obra/superpowers v6.3.0 b36e0829c6d0140e93cfef2ca599b1b07d4a7797 2026-08-21T15:29:38Z auto skill
 repomix-explorer yamadashy/repomix v1.18.0 c4c80eb8ab3fad8c60f23ff9280f3f2c65789379 2026-08-21T15:29:40Z auto skill
-requesting-code-review obra/superpowers v6.3.0 b36e0829c6d0140e93cfef2ca599b1b07d4a7797 2026-08-21T15:29:42Z auto skill
 research mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:37:13Z auto skill
 resolving-merge-conflicts mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:37:15Z auto skill
 review-animations emilkowalski/skill main d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7 2026-08-21T15:29:43Z auto skill
@@ -58,18 +53,13 @@ setup-matt-pocock-skills mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae9
 setup-pre-commit mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:37:22Z auto skill
 setup-ts-deep-modules mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:37:24Z auto skill
 stop-slop hardikpandya/stop-slop main 8da1f030185bdfe8471220585162991eaeb970e9 2026-08-21T05:37:26Z auto skill
-subagent-driven-development obra/superpowers v6.3.0 b36e0829c6d0140e93cfef2ca599b1b07d4a7797 2026-08-21T15:29:46Z auto skill
-systematic-debugging obra/superpowers v6.3.0 b36e0829c6d0140e93cfef2ca599b1b07d4a7797 2026-08-21T15:29:48Z auto skill
 tdd mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:37:33Z auto skill
 teach mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:37:35Z auto skill
-test-driven-development obra/superpowers v6.3.0 b36e0829c6d0140e93cfef2ca599b1b07d4a7797 2026-08-21T15:29:50Z auto skill
 textify bepyan/textify-cli main ba0151cff39d2b24d21e4ca796b9b9ca065a38d8 2026-08-21T15:29:51Z auto skill
 to-questionnaire mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:37:39Z auto skill
 to-spec mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:37:42Z auto skill
 to-tickets mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:37:44Z auto skill
 triage mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:37:47Z auto skill
-using-git-worktrees obra/superpowers v6.3.0 b36e0829c6d0140e93cfef2ca599b1b07d4a7797 2026-08-21T15:29:53Z auto skill
-using-superpowers obra/superpowers v6.3.0 b36e0829c6d0140e93cfef2ca599b1b07d4a7797 2026-08-21T15:29:55Z auto skill
 vercel-cli-with-tokens vercel-labs/agent-skills main b8caa260a420a73042e35521de4b5c8baf6446cc 2026-08-21T05:37:51Z auto skill
 vercel-composition-patterns vercel-labs/agent-skills main b8caa260a420a73042e35521de4b5c8baf6446cc 2026-08-21T05:37:53Z auto skill
 vercel-optimize vercel-labs/agent-skills main b8caa260a420a73042e35521de4b5c8baf6446cc 2026-08-21T05:37:55Z auto skill
@@ -86,6 +76,5 @@ writing-beats mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 
 writing-for-agents mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:38:13Z auto skill
 writing-fragments mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:38:15Z auto skill
 writing-guidelines vercel-labs/agent-skills main b8caa260a420a73042e35521de4b5c8baf6446cc 2026-08-21T05:38:16Z auto skill
-writing-plans obra/superpowers v6.3.0 b36e0829c6d0140e93cfef2ca599b1b07d4a7797 2026-08-21T15:30:02Z auto skill
 writing-shape mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:38:20Z auto skill
 writing-skills obra/superpowers v6.3.0 b36e0829c6d0140e93cfef2ca599b1b07d4a7797 2026-08-21T15:30:05Z auto skill
