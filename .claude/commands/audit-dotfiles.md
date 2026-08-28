@@ -84,7 +84,7 @@ rosie.lock 은 항목마다 commit SHA(4열)를 핀한다. drift 가 의심되�
 
 ## 3. Frontmatter 스키마
 
-`.agents/agents/`, `.agents/commands/`, `.agents/hooks/` 의 source-tracking 메타 컨벤션 (`CLAUDE.md` § Source tracking convention) 준수 확인.
+`.agents/agents/`, `.agents/commands/`, `.agents/hooks/` 의 source-tracking 메타 컨벤션 (`CLAUDE.md` § Source tracking) 준수 확인.
 
 ### 점검 대상
 
