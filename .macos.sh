@@ -119,6 +119,15 @@ log "Caps Lock → No Action"
 defaults -currentHost write -g com.apple.keyboard.modifiermapping.0-0-0 -array \
   '<dict><key>HIDKeyboardModifierMappingSrc</key><integer>30064771129</integer><key>HIDKeyboardModifierMappingDst</key><integer>30064771072</integer></dict>'
 
+log "Hangul ₩ → backtick (⌥₩ still types ₩)"
+mkdir -p "$HOME/Library/KeyBindings"
+cat <<'EOF' > "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
+{
+  "₩" = ("insertText:", "`");
+  "~₩" = ("insertText:", "₩");
+}
+EOF
+
 log "Spotlight ⌘Space off"
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
   '<dict><key>enabled</key><false/><key>value</key><dict><key>parameters</key><array><integer>65535</integer><integer>49</integer><integer>1048576</integer></array><key>type</key><string>standard</string></dict></dict>'
