@@ -21,3 +21,5 @@
 	path = ~/.config/git/kakao
 [includeIf "gitdir:~/vscode/"]
 	path = ~/.config/git/vscode
+[url "git@github.daumkakao.com:"]
+	insteadOf = https://github.daumkakao.com/
