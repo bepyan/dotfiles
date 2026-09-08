@@ -18,6 +18,7 @@
   - "that's the real story here"
   - breathless intensifiers ("mind-blowing", "breakthrough", "game-changer")
 - State information directly. Skip the rhetorical framing.
+- Do not use em dashes. Use commas or parentheses for additional information, and split long sentences into shorter ones when needed. Express emphasis and contrast through natural wording.
 
 ## Subagent strategy
 
