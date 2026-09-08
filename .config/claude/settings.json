@@ -64,5 +64,6 @@
   "autoMemoryEnabled": false,
   "theme": "dark",
   "autoCompactEnabled": false,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "autoInstallIdeExtension": false
 }

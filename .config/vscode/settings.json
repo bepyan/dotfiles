@@ -36,5 +36,6 @@
   "cursor.general.emailPrivacyEnabled": true,
   "explorer.confirmDragAndDrop": false,
   "cursor.composer.showEmptyStateTips": false,
-  "cursor.composer.shouldChimeAfterChatFinishes": true
+  "cursor.composer.shouldChimeAfterChatFinishes": true,
+  "redhat.telemetry.enabled": false
 }
