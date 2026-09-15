@@ -1,7 +1,6 @@
 # rosie-lock v1
 apple-design emilkowalski/skills main d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7 2026-08-21T15:28:51Z auto skill
 archify tt-a1i/archify v2.16.0 c826e6c3a7abad19c0f3cd1ca57207d54b1ad8de 2026-09-09T04:37:10Z auto skill
-ask-matt mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:35:14Z auto skill
 cavecrew JuliusBrussee/caveman v2.6.0 b82c0ad42c2bedc1f2cd78e414dadfaffbaaeec3 2026-09-09T08:24:40Z auto skill
 caveman JuliusBrussee/caveman v2.6.0 b82c0ad42c2bedc1f2cd78e414dadfaffbaaeec3 2026-09-09T08:24:42Z auto skill
 caveman-commit JuliusBrussee/caveman v2.6.0 b82c0ad42c2bedc1f2cd78e414dadfaffbaaeec3 2026-09-09T08:24:44Z auto skill
@@ -10,7 +9,6 @@ caveman-help JuliusBrussee/caveman v2.6.0 b82c0ad42c2bedc1f2cd78e414dadfaffbaaee
 caveman-review JuliusBrussee/caveman v2.6.0 b82c0ad42c2bedc1f2cd78e414dadfaffbaaeec3 2026-09-09T08:24:51Z auto skill
 caveman-stats JuliusBrussee/caveman v2.6.0 b82c0ad42c2bedc1f2cd78e414dadfaffbaaeec3 2026-09-09T08:24:53Z auto skill
 chrome-extensions GoogleChrome/modern-web-guidance v0.0.187 bfd8c8dded770f3ba07a518e28991a32df40f902 2026-09-09T08:24:55Z auto skill
-claude-handoff mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:35:35Z auto skill
 code-review mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:35:38Z auto skill
 codebase-design mattpocock/skills v1.2.3 6acc160e4e0cd062dbbbd7a1b26ae92855edf07e 2026-08-21T05:35:39Z auto skill
 cohesion toss/frontend-fundamentals main 161d3d6a0d6d372eacd75036de567511643f6265 2026-08-21T05:35:47Z auto skill
