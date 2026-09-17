@@ -1,11 +1,10 @@
 # Agent instructions
 
 - NEVER include secrets, tokens, or PII in logs or outputs; rely on environment variables
-- NEVER include Claude Code or Codex or any other coding agent in the
-  attribution
+- NEVER include Claude Code or Codex or any other coding agent in the attribution
   - e.g. no "Generated with Claude Code", no "Co-Authored-By: Claude" lines.
   - user reviews and takes responsibility for all commits
-  - AI attribution undermines that ownership
+- NEVER em dashes (`—`) or dashes (`-`) as punctuation; use colons, commas, periods, or rephrase
 - ALWAYS respond in Korean
 
 ## Tone
@@ -18,7 +17,6 @@
   - "that's the real story here"
   - breathless intensifiers ("mind-blowing", "breakthrough", "game-changer")
 - State information directly. Skip the rhetorical framing.
-- Do not use em dashes. Use commas or parentheses for additional information, and split long sentences into shorter ones when needed. Express emphasis and contrast through natural wording.
 
 ## Subagent strategy
 
@@ -37,8 +35,6 @@
 - Pattern search: `rg -n "pattern" --glob '!node_modules/*'`
 - File finding: `fd filename` or `fd .ext directory`
 - File preview: `bat -n filepath`
-- Bulk refactor: `rg -l "pattern" | xargs sed -i '' 's/old/new/g'`
-- Project structure: `tree -L 2 <dir>`
 - JSON inspection: `jq '.key' file.json`
 
 # Coding Guidelines
