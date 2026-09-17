@@ -14,6 +14,7 @@ brew "argc"        # bash cli framework / command runner
 brew "bash"        # esp. when you run scripts macOS is still on 3.2
 brew "bat"         # replace cat
 brew "fd"          # replace find
+brew "duti"        # default app for file
 brew "jq"          # for phrasing JSON
 brew "ripgrep"     # replace grep
 brew "tmux"        # terminal multiplexer

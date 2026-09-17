@@ -155,6 +155,37 @@ log "Update every 2 seconds"
 defaults write com.apple.ActivityMonitor UpdatePeriod -int 2
 
 ###############################################################################
+# Default apps
+###############################################################################
+
+echo -e "${PURPLE}---- Configuring default apps...${NC}"
+
+# extension → app path (add entries here)
+DEFAULT_APP="/Applications/Cursor.app"
+DEFAULT_EXTENSIONS=(json jsonc)
+DEFAULT_UTIS=(public.json)
+
+if [ -d "$DEFAULT_APP" ] && command -v duti &>/dev/null; then
+  bundle_id=$(defaults read "$DEFAULT_APP/Contents/Info" CFBundleIdentifier 2>/dev/null || true)
+  if [ -n "$bundle_id" ]; then
+    log "Default app: $DEFAULT_APP"
+    /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f -R "$DEFAULT_APP"
+    for ext in "${DEFAULT_EXTENSIONS[@]}"; do
+      duti -s "$bundle_id" ".$ext" all || true
+      log "  .$ext"
+    done
+    for uti in "${DEFAULT_UTIS[@]}"; do
+      duti -s "$bundle_id" "$uti" all || true
+      log "  $uti"
+    done
+  else
+    log "Skip default apps (could not read bundle ID from $DEFAULT_APP)"
+  fi
+else
+  log "Skip default apps ($DEFAULT_APP or duti missing)"
+fi
+
+###############################################################################
 # PRIVACY & SECURITY
 ###############################################################################
 
