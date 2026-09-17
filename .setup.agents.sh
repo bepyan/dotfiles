@@ -103,6 +103,20 @@ elif [ -f "$rosie_lock" ]; then
 fi
 
 ##############################################################
+# my-agents skills
+# upstream 없는 자작 스킬은 my-agents 에서 관리하고 ~/.agents/skills 로 심링크한다.
+# rosie 복원 이후 실행 — rosie 는 기존 스킬을 스킵하므로 순서가 안전하다.
+##############################################################
+
+my_agents="$HOME/vscode/my-agents"
+if [ -x "$my_agents/link-skills.sh" ]; then
+    echo -e "\n${PURPLE}••••••• linking my-agents skills${NC}"
+    "$my_agents/link-skills.sh"
+else
+    echo -e "${GRAY}  · my-agents 미설치 — skills 링크 생략${NC}"
+fi
+
+##############################################################
 # Verify hook scripts referenced in settings.json exist and are executable
 ##############################################################
 
