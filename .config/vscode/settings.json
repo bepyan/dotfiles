@@ -1,19 +1,19 @@
 {
   "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
+    "editor.defaultFormatter": "svelte.svelte-vscode",
   },
   "cSpell.enabledNotifications": {
     "Average Word Length too Long": false,
     "Lines too Long": false,
-    "Maximum Word Length Exceeded": false
+    "Maximum Word Length Exceeded": false,
   },
   "cSpell.customDictionaries": {
     "dotfiles-user": {
       "name": "dotfiles-user",
       "path": "~/.config/vscode/cspell-user-words.txt",
       "addWords": true,
-      "scope": "user"
-    }
+      "scope": "user",
+    },
   },
   "cSpell.dictionaries": ["dotfiles-user"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -37,5 +37,6 @@
   "explorer.confirmDragAndDrop": false,
   "cursor.composer.showEmptyStateTips": false,
   "cursor.composer.shouldChimeAfterChatFinishes": true,
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "git.autofetch": true,
 }
