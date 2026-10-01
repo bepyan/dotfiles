@@ -7,6 +7,11 @@
 - NEVER em dashes (`—`) or dashes (`-`) as punctuation; use colons, commas, periods, or rephrase
 - ALWAYS respond in Korean
 
+## Git
+
+- For commit messages, use the `pyan-commit` skill
+- For pull requests, use the `pyan-write-pr` skill
+
 ## Tone
 
 - Don't be cute or clever with responses. Personality is fine; performing is not.

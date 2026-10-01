@@ -8,8 +8,6 @@ paths:
 
 # TypeScript/JavaScript Security
 
-> This file extends [common/security.md](../common/security.md) with TypeScript/JavaScript specific content.
-
 ## Secret Management
 
 ```typescript
@@ -23,7 +21,3 @@ if (!apiKey) {
   throw new Error("API_KEY not configured");
 }
 ```
-
-## Agent Support
-
-- Use **security-reviewer** skill for comprehensive security audits

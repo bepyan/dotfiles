@@ -8,8 +8,6 @@ paths:
 
 # TypeScript/JavaScript Patterns
 
-> This file extends [common/patterns.md](../common/patterns.md) with TypeScript/JavaScript specific content.
-
 ## API Response Format
 
 ```typescript

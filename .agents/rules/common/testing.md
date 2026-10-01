@@ -21,39 +21,14 @@ MANDATORY workflow:
 
 ## Troubleshooting Test Failures
 
-1. Use **tdd-guide** agent
-2. Check test isolation
-3. Verify mocks are correct
-4. Fix implementation, not tests (unless tests are wrong)
-
-## Agent Support
-
-- **tdd-guide** - Use PROACTIVELY for new features, enforces write-tests-first
+1. Check test isolation
+2. Verify mocks are correct
+3. Fix implementation, not tests (unless tests are wrong)
 
 ## Test Structure (AAA Pattern)
 
-Prefer Arrange-Act-Assert structure for tests:
-
-```typescript
-test("calculates similarity correctly", () => {
-  // Arrange
-  const vector1 = [1, 0, 0];
-  const vector2 = [0, 1, 0];
-
-  // Act
-  const similarity = calculateCosineSimilarity(vector1, vector2);
-
-  // Assert
-  expect(similarity).toBe(0);
-});
-```
+Prefer Arrange-Act-Assert structure for tests. See the language rules for examples.
 
 ### Test Naming
 
-Use descriptive names that explain the behavior under test:
-
-```typescript
-test("returns empty array when no markets match query", () => {});
-test("throws error when API key is missing", () => {});
-test("falls back to substring search when Redis is unavailable", () => {});
-```
+Use descriptive names that explain the behavior under test, not the function name.
