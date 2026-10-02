@@ -2,7 +2,7 @@
 description: dotfiles harness 무결성 검증 — symlink, skill drift, frontmatter 스키마
 meta:
   source: native
-  updateDate: 2026-05-10
+  updateDate: 2026-10-02
 ---
 
 dotfiles repo 의 무결성을 3 단계로 점검한다. 각 단계는 실패해도 다음 단계를 계속 진행하고, 마지막에 종합 결과 표를 출력한다.
@@ -21,10 +21,10 @@ dotfiles repo 의 무결성을 3 단계로 점검한다. 각 단계는 실패해
 |---|---|---|
 | canonical | `~/.agents` | `$REPO/.agents` |
 | Claude — instruction | `~/.claude/CLAUDE.md` | `~/.agents/AGENTS.md` |
-| Claude — assets | `~/.claude/{commands,rules,agents,skills}` | `~/.agents/{commands,rules,agents,skills}` |
+| Claude — assets | `~/.claude/{commands,agents,skills}` | `~/.agents/{commands,agents,skills}` |
 | Claude — settings | `~/.claude/settings.json` | `$REPO/.config/claude/settings.json` |
 | Claude — statusline | `~/.claude/statusline.sh`, `~/.claude/statusline-fetch-rl.sh` | `$REPO/.config/claude/statusline*.sh` |
-| Codex | `~/.codex/AGENTS.md`, `~/.codex/prompts`, `~/.codex/rules` | `~/.agents/AGENTS.md`, `~/.agents/commands`, `~/.agents/rules` |
+| Codex | `~/.codex/AGENTS.md`, `~/.codex/prompts` | `~/.agents/AGENTS.md`, `~/.agents/commands` |
 | .config | `~/.config/{ghostty,zsh,vscode}` | `$REPO/.config/*` |
 | VSCode + Cursor | `User/settings.json`, `User/cspell-user-words.txt` | `$REPO/.config/vscode/{settings.json,cspell-user-words.txt}` |
 

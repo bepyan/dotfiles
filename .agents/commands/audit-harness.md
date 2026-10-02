@@ -2,7 +2,7 @@
 description: agentic harness 정량 베이스라인 측정 (존재 계측 + 실사용 계측)
 meta:
   source: ecc-derived
-  updateDate: 2026-09-21
+  updateDate: 2026-10-02
 ---
 
 현재 harness 의 정량 베이스라인을 직접 측정한다. 서브에이전트를 쓰지 않는다.
@@ -51,7 +51,7 @@ rg -o '"skill":"[a-zA-Z0-9_:-]+"' -N --no-filename ~/.claude/projects \
 rg -n "<asset-name>" ~/.agents --glob '!**/<asset-dir>/*'
 ```
 
-commands, rules, skills, AGENTS.md 에서 각 자산 이름의 참조 수를 센다. 참조 0 + 호출 0 이면 제거 후보다.
+commands, skills, AGENTS.md 에서 각 자산 이름의 참조 수를 센다. 참조 0 + 호출 0 이면 제거 후보다.
 
 ## 산출물
 

@@ -47,9 +47,6 @@ ln -sfn "$HOME/.agents/AGENTS.md" "$HOME/.claude/CLAUDE.md"
 rm -rf "$HOME/.claude/commands"
 ln -sfn "$HOME/.agents/commands" "$HOME/.claude/commands"
 
-rm -rf "$HOME/.claude/rules"
-ln -sfn "$HOME/.agents/rules" "$HOME/.claude/rules"
-
 rm -rf "$HOME/.claude/skills"
 ln -sfn "$HOME/.agents/skills" "$HOME/.claude/skills"
 
@@ -74,9 +71,6 @@ ln -sfn "$HOME/.agents/AGENTS.md" "$HOME/.codex/AGENTS.md"
 
 rm -rf "$HOME/.codex/prompts"
 ln -sfn "$HOME/.agents/commands" "$HOME/.codex/prompts"
-
-rm -rf "$HOME/.codex/rules"
-ln -sfn "$HOME/.agents/rules" "$HOME/.codex/rules"
 
 # skills: codex reads $HOME/.agents/skills directly — no symlink needed
 
