@@ -1,16 +1,7 @@
 # Agent instructions
 
 - NEVER include secrets, tokens, or PII in logs or outputs; rely on environment variables
-- NEVER include Claude Code or Codex or any other coding agent in the attribution
-  - e.g. no "Generated with Claude Code", no "Co-Authored-By: Claude" lines.
-  - user reviews and takes responsibility for all commits
-- NEVER em dashes (`—`) or dashes (`-`) as punctuation; use colons, commas, periods, or rephrase
 - ALWAYS respond in Korean
-
-## Git
-
-- For commit messages, use the `pyan-commit` skill
-- For pull requests, use the `pyan-write-pr` skill
 
 ## Tone
 
