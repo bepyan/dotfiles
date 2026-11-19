@@ -141,6 +141,15 @@ log "Reload keyboard shortcuts"
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
 ###############################################################################
+# Power
+###############################################################################
+
+echo -e "${PURPLE}---- Configuring Power settings...${NC}"
+
+log "No system sleep on AC (display may still sleep)"
+sudo pmset -c sleep 0
+
+###############################################################################
 # Activity Monitor
 ###############################################################################
 
