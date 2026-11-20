@@ -18,7 +18,7 @@ macOS workstation setup. 한 repo에 두 얼굴이 공존한다.
 
 ## Source tracking
 
-사람이 작성하는 `.agents/` 자산 (agents·commands·hooks)에는 frontmatter `meta:`가 필수다.
+사람이 작성하는 `.agents/` 자산 (commands·hooks)에는 frontmatter `meta:`가 필수다.
 
 ```yaml
 meta:

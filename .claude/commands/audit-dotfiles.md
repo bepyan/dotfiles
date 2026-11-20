@@ -84,13 +84,12 @@ rosie.lock 은 항목마다 commit SHA(4열)를 핀한다. drift 가 의심되�
 
 ## 3. Frontmatter 스키마
 
-`.agents/agents/`, `.agents/commands/`, `.agents/hooks/` 의 source-tracking 메타 컨벤션 (루트 `AGENTS.md` § Source tracking) 준수 확인.
+`.agents/commands/`, `.agents/hooks/` 의 source-tracking 메타 컨벤션 (루트 `AGENTS.md` § Source tracking) 준수 확인.
 
 ### 점검 대상
 
 | 디렉토리 | 컨벤션 | 필수 필드 |
 |---|---|---|
-| `.agents/agents/*.md` | YAML frontmatter | `name`, `description`, `meta.source`, `meta.updateDate` |
 | `.agents/commands/*.md` | YAML frontmatter | `description`, `meta.source`, `meta.updateDate` |
 | `.agents/hooks/*.sh` | 파일 상단 한 줄 주석 | `# meta: source=... updateDate=...` |
 | `.agents/skills/*` | (제외) | `rosie.lock` 자동 추적 |
@@ -100,19 +99,13 @@ rosie.lock 은 항목마다 commit SHA(4열)를 핀한다. drift 가 의심되�
 frontmatter — `yq` 권장:
 
 ```bash
-for f in ~/.agents/agents/*.md ~/.agents/commands/*.md; do
+for f in ~/.agents/commands/*.md; do
   src=$(yq eval '.meta.source // ""' "$f" 2>/dev/null)
   date=$(yq eval '.meta.updateDate // ""' "$f" 2>/dev/null)
   [ -z "$src"  ] && echo "MISSING meta.source: $f"
   [ -z "$date" ] && echo "MISSING meta.updateDate: $f"
   [ -n "$date" ] && [[ ! "$date" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] \
     && echo "INVALID updateDate format ($date): $f"
-done
-
-# agents 만 추가로
-for f in ~/.agents/agents/*.md; do
-  yq eval '.name // ""' "$f" | grep -q . || echo "MISSING name: $f"
-  yq eval '.description // ""' "$f" | grep -q . || echo "MISSING description: $f"
 done
 ```
 
