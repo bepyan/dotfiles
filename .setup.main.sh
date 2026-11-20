@@ -28,9 +28,9 @@ for file in "${files_to_link[@]}"; do
 done
 
 echo -e "\n${YELLOW}---- Setting up gitconfig${NC}"
-# ~/.config/git already holds ignore; link files, do not replace the directory
+# link files, do not replace the ~/.config/git directory
 mkdir -p "$HOME/.config/git"
-for git_file in kakao vscode; do
+for git_file in kakao vscode ignore; do
     echo -e "${PURPLE}••••••• symlinking $current_dir/.config/git/$git_file -> $HOME/.config/git/$git_file ${NC}"
     rm -f "$HOME/.config/git/$git_file"
     ln -sfn "$current_dir/.config/git/$git_file" "$HOME/.config/git/$git_file"
