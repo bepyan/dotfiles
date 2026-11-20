@@ -3,7 +3,7 @@ description: .agents/log/sessions.jsonl 최근 N일 → 패턴 추출
 argument-hint: "[days=7]"
 meta:
   source: native
-  updateDate: 2026-08-28
+  updateDate: 2026-11-20
 ---
 
 기간: $ARGUMENTS (기본 7일)
@@ -23,7 +23,7 @@ meta:
         action: <자동화 가능 행동>
         evidence: 최근 N회 발생 (cwd: ...)
      ```
-   - 사용자 검토 후 승인된 후보만 dotfiles `CLAUDE.md` 또는 해당 프로젝트 CLAUDE.md 에 한 줄로 추가 (글로벌 AGENTS.md 는 영향 범위 너무 크니 피한다)
+   - 사용자 검토 후 승인된 후보만 dotfiles 루트 `AGENTS.md` 또는 해당 프로젝트 CLAUDE.md 에 한 줄로 추가 (글로벌 `.agents/AGENTS.md` 는 영향 범위 너무 크니 피한다)
    - **첫 호출 전 데이터 충분성 확인**: jsonl 50행 미만이면 instinct 추출 의미 약함 → 더 누적 후 재시도
 
 ## 산출물

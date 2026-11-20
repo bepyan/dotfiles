@@ -2,7 +2,7 @@
 description: dotfiles harness 무결성 검증 — symlink, skill drift, frontmatter 스키마
 meta:
   source: native
-  updateDate: 2026-10-02
+  updateDate: 2026-11-20
 ---
 
 dotfiles repo 의 무결성을 3 단계로 점검한다. 각 단계는 실패해도 다음 단계를 계속 진행하고, 마지막에 종합 결과 표를 출력한다.
@@ -84,7 +84,7 @@ rosie.lock 은 항목마다 commit SHA(4열)를 핀한다. drift 가 의심되�
 
 ## 3. Frontmatter 스키마
 
-`.agents/agents/`, `.agents/commands/`, `.agents/hooks/` 의 source-tracking 메타 컨벤션 (`CLAUDE.md` § Source tracking) 준수 확인.
+`.agents/agents/`, `.agents/commands/`, `.agents/hooks/` 의 source-tracking 메타 컨벤션 (루트 `AGENTS.md` § Source tracking) 준수 확인.
 
 ### 점검 대상
 
