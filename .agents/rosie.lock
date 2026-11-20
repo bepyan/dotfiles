@@ -1,4 +1,5 @@
 # rosie-lock v1
+agent-browser vercel-labs/agent-browser main 19efb41b9ac39e462806a79fe8dfeee36351bbb7 2026-11-20T07:06:09Z pin skill
 archify tt-a1i/archify v2.16.0 c826e6c3a7abad19c0f3cd1ca57207d54b1ad8de 2026-09-09T04:37:10Z auto skill
 chrome-extensions GoogleChrome/modern-web-guidance v0.0.187 bfd8c8dded770f3ba07a518e28991a32df40f902 2026-09-09T08:24:55Z auto skill
 emil-design-eng emilkowalski/skill main d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7 2026-08-21T15:29:14Z auto skill

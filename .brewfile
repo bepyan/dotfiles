@@ -65,6 +65,9 @@ brew "mkcert"
 # rosie: agent skills 관리 CLI (.agents/skills 복원 — .setup.agents.sh)
 brew "withastro/rosie/rosie", trusted: true
 
+# agent-browser: 에이전트용 headless 브라우저 CLI (skill은 rosie.lock, Chrome은 `agent-browser install`)
+brew "agent-browser"
+
 mas "Xcode", id: 497799835
 
 cask "android-platform-tools"
